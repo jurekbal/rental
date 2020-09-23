@@ -3,9 +3,8 @@ package javapoz24.team3.rental.domain.rental;
 import javapoz24.team3.rental.domain.base.BaseEntity;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import javax.transaction.Transactional;
 
 @Data
 @Builder
@@ -14,10 +13,10 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 public class CompanyBranch extends BaseEntity {
 
-    @OneToOne(mappedBy = "companyBranch")
+    @Embedded
     private Address address;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
     private Rental rental;
 

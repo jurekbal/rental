@@ -17,7 +17,7 @@ public class RentalService {
         return rentalDomainService.getRentalInfo();
     }
 
-    public void saveRentalIndoData(Rental rental) {
+    public void saveRentalInfoData(Rental rental) {
         rentalDomainService.saveRentalInfoData(rental);
     }
 }

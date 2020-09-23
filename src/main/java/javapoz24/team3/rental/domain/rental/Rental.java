@@ -6,9 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.transaction.Transactional;
 import java.net.URI;
 import java.util.Set;
 
@@ -20,9 +22,9 @@ import java.util.Set;
 public class Rental extends BaseEntity {
 
     private String name;
-    private URI webDomain;
+    private String webDomain;
     private String owner;
-    private URI logoURL;
-    @OneToMany(mappedBy = "rental", fetch = FetchType.EAGER)
+    private String logoURL;
+    @OneToMany(mappedBy = "rental", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<CompanyBranch> companyBranches;
 }
