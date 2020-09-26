@@ -1,8 +1,8 @@
 package javapoz24.team3.rental.application.api;
 
 import javapoz24.team3.rental.application.RentalService;
-import javapoz24.team3.rental.domain.rental.CompanyBranch;
-import javapoz24.team3.rental.domain.rental.Rental;
+import javapoz24.team3.rental.domain.rental.CompanyBranchDTO;
+import javapoz24.team3.rental.domain.rental.RentalDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,17 +19,17 @@ public class RentalController {
     }
 
     @GetMapping("/home")
-    public Rental getRentalInfoData() {
+    public RentalDTO getRentalInfoData() {
         return rentalService.getRentalInfo();
     }
 
     @GetMapping("/branches")
-    public List<CompanyBranch> getAllBranches() {
+    public List<CompanyBranchDTO> getAllBranches() {
         return rentalService.getAllBranches();
     }
 
     @GetMapping("/branches/{id}")
-    public CompanyBranch getBranchById(@PathVariable Long id) {
+    public CompanyBranchDTO getBranchById(@PathVariable Long id) {
         return rentalService.getBranchById(id);
     }
 

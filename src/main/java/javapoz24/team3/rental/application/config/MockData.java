@@ -4,6 +4,7 @@ import javapoz24.team3.rental.application.RentalService;
 import javapoz24.team3.rental.domain.rental.Address;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import javapoz24.team3.rental.domain.rental.Rental;
+import javapoz24.team3.rental.domain.rental.RentalDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class MockData {
 
     @Autowired
     private RentalService rentalService;
+
+    @Autowired
+    private RentalDomainService rentalDomainService;
 
     @PostConstruct
     public void GenerateMockData() {
@@ -52,7 +56,7 @@ public class MockData {
         System.out.println("Rental Info From Mocked Object: (saved to DB)");
         System.out.println(rental);
         System.out.println("*** Rental Info From DB:");
-        Rental rentalFromDB = rentalService.getRentalInfo();
+        Rental rentalFromDB = rentalDomainService.getRentalInfo();
         System.out.println(rentalFromDB);
     }
 

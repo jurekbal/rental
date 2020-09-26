@@ -1,6 +1,5 @@
 package javapoz24.team3.rental.domain.rental;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javapoz24.team3.rental.domain.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +14,6 @@ import javax.persistence.ManyToOne;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"rental", "deleted"})
-// dzięki temu API nie wypluwa całego rentala przy zapytaniu o CompanyBrnach
 public class CompanyBranch extends BaseEntity {
 
     @Embedded

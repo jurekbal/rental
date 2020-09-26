@@ -1,11 +1,10 @@
 package javapoz24.team3.rental.application;
 
-import javapoz24.team3.rental.domain.rental.CompanyBranch;
-import javapoz24.team3.rental.domain.rental.Rental;
-import javapoz24.team3.rental.domain.rental.RentalDomainService;
+import javapoz24.team3.rental.domain.rental.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RentalService {
@@ -16,8 +15,8 @@ public class RentalService {
         this.rentalDomainService = rentalDomainService;
     }
 
-    public Rental getRentalInfo() {
-        return rentalDomainService.getRentalInfo();
+    public RentalDTO getRentalInfo() {
+        return RentalDTO.fromRental(rentalDomainService.getRentalInfo());
     }
 
     public void saveRentalInfoData(Rental rental) {
@@ -28,11 +27,13 @@ public class RentalService {
         rentalDomainService.saveBranch(branch);
     }
 
-    public List<CompanyBranch> getAllBranches() {
-        return rentalDomainService.getAllBranches();
+    public List<CompanyBranchDTO> getAllBranches() {
+        return rentalDomainService.getAllBranches().stream()
+                .map(CompanyBranchDTO::fromCompanyBranch)
+                .collect(Collectors.toList());
     }
 
-    public CompanyBranch getBranchById(Long id) {
-        return rentalDomainService.getBranchById(id);
+    public CompanyBranchDTO getBranchById(Long id) {
+        return CompanyBranchDTO.fromCompanyBranch(rentalDomainService.getBranchById(id));
     }
 }
