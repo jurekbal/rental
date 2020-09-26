@@ -3,9 +3,8 @@ package javapoz24.team3.rental.application.api;
 import javapoz24.team3.rental.application.RentalService;
 import javapoz24.team3.rental.domain.rental.CompanyBranchDTO;
 import javapoz24.team3.rental.domain.rental.RentalDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import javapoz24.team3.rental.domain.rental.RentalInfo;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +30,11 @@ public class RentalController {
     @GetMapping("/branches/{id}")
     public CompanyBranchDTO getBranchById(@PathVariable Long id) {
         return rentalService.getBranchById(id);
+    }
+
+    @PutMapping("/home")
+    public void updateRentalInfoData(@RequestBody RentalInfo rentalInfo) {
+        rentalService.updateRentalInfoData(rentalInfo);
     }
 
 
