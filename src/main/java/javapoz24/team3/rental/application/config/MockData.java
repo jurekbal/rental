@@ -55,9 +55,11 @@ public class MockData {
         System.out.println(rental.getCompanyBranches());
         System.out.println("Rental Info From Mocked Object: (saved to DB)");
         System.out.println(rental);
-        System.out.println("*** Rental Info From DB:");
-        Rental rentalFromDB = rentalDomainService.getRentalInfo();
-        System.out.println(rentalFromDB);
+
+        //Poniższy kod wywala apkę przy FetchType.LAZY - @Transactional nic nie zmienia
+//        System.out.println("*** Rental Info From DB:");
+//        Rental rentalFromDB = rentalDomainService.getRentalInfo();
+//        System.out.println(rentalFromDB);
     }
 
 }

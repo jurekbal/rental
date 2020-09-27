@@ -8,6 +8,7 @@ import java.util.Set;
 @Value
 public class RentalDTO {
     // @Value - wszystkie pola są private final
+    Long id;
     String name;
     String webDomain;
     String owner;
@@ -17,6 +18,7 @@ public class RentalDTO {
 
     public static RentalDTO fromRental(Rental rental) {
         return new RentalDTO(
+                rental.getId(),
                 rental.getName(),
                 rental.getWebDomain(),
                 rental.getOwner(),

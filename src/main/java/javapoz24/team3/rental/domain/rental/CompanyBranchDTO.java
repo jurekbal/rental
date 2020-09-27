@@ -8,12 +8,15 @@ import java.util.stream.Collectors;
 @Value
 public class CompanyBranchDTO {
 
+    Long id;
     Address address;
 
     // TODO Lista pracowników, lista dostępnych aut
 
     public static CompanyBranchDTO fromCompanyBranch(CompanyBranch companyBranch) {
-        return new CompanyBranchDTO(companyBranch.getAddress());
+        return new CompanyBranchDTO(
+                companyBranch.getId(),
+                companyBranch.getAddress());
     }
 
     public static Set<CompanyBranchDTO> fromCompanyBranchSet(Set<CompanyBranch> cbSet) {
