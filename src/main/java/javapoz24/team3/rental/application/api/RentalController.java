@@ -39,5 +39,10 @@ public class RentalController {
         rentalService.updateRentalInfoData(rentalInfo);
     }
 
+    @PutMapping("/branches")
+    public void addBranchOffice(@RequestBody @Validated CompanyBranchDTO companyBranchDTO) {
+        rentalService.addBranch(companyBranchDTO);
+    }
+
 
 }

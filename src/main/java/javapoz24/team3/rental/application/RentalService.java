@@ -27,6 +27,13 @@ public class RentalService {
         rentalDomainService.saveBranch(branch);
     }
 
+    public void addBranch(CompanyBranchDTO branchDTO) {
+        Rental rental = rentalDomainService.getRentalInfo();
+        CompanyBranch branch = CompanyBranch.fromDTO(branchDTO, rental);
+        rental.getCompanyBranches().add(branch);
+        saveRentalInfoData(rental);
+    }
+
     public List<CompanyBranchDTO> getAllBranches() {
         return rentalDomainService.getAllBranches().stream()
                 .map(CompanyBranchDTO::fromCompanyBranch)
