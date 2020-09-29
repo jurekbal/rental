@@ -24,4 +24,12 @@ public class CompanyBranch extends BaseEntity {
 
     // TODO Lista pracowników, lista dostępnych aut
 
+    public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
+
+        return new CompanyBranch(
+                companyBranchDTO.getAddress(),
+                rental
+        );
+    }
+
 }

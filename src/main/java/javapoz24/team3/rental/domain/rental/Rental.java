@@ -24,7 +24,8 @@ public class Rental extends BaseEntity {
     private String logoURL;
 
     @OneToMany(mappedBy = "rental", cascade = CascadeType.ALL)
-    @EqualsAndHashCode.Exclude  // bez tego wysypuje się z "Set" (ale "List" działa!?)
+    @EqualsAndHashCode.Exclude
+    // bez tego wysypuje się z "Set" (ale "List" działa!?) / można zaimpl. też odpowiedni hashCode w CompanyBrnach
     private Set<CompanyBranch> companyBranches;
 
 }
