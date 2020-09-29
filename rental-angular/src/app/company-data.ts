@@ -1,4 +1,5 @@
-export interface Edit_company_data {
+export interface CompanyData {
+  id: number;
   company_name: string;
   domain: string
   email: string;

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { EditComponent } from './edit-company-data/edit.component';
+import { EditComponent } from './edit-company-data/edit-company-data';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CompanyBranchComponent } from './company-branch/company-branch.component';
