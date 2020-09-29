@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {EditComponent} from './edit/edit.component';
+import {EditComponent} from './edit-company-data/edit.component';
 import {NotFoundComponent} from "./not-found/not-found.component";
 
 
