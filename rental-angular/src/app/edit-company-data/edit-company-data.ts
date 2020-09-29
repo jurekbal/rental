@@ -9,31 +9,31 @@ import { CompanyDataService } from '../company-data.service';
   styleUrls: ['./edit-company-data.css']
 })
 export class EditComponent implements OnInit {
-companyData: CompanyData;
+// companyData: CompanyData;
 
 
   constructor(
-    private route: ActivatedRoute,
-    private companyDataService: CompanyDataService,
-    private location: Location
+    // private route: ActivatedRoute,
+    // private companyDataService: CompanyDataService,
+    // private location: Location
   ) {}
 
   ngOnInit(): void {
-    this.getCompanyData();
+    // this.getCompanyData();
   }
-  getCompanyData(): void {
-
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.companyDataService.getCompanyData(id)
-      .subscribe(companyData => this.companyData = companyData);
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-  save(): void {
-
-    this.companyDataService.updateCompanyData(this.companyData)
-      .subscribe(() => this.goBack());
-  }
+  // getCompanyData(): void {
+  //
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   this.companyDataService.getCompanyData(id)
+  //     .subscribe(companyData => this.companyData = companyData);
+  // }
+  //
+  // goBack(): void {
+  //   this.location.back();
+  // }
+  // save(): void {
+  //
+  //   this.companyDataService.updateCompanyData(this.companyData)
+  //     .subscribe(() => this.goBack());
+  // }
 }

@@ -8,24 +8,24 @@ import {CompanyData} from "./company-data";
 })
 export class CompanyDataService {
 
-  private companyDataUrl = 'http://localhost:8080/home';
+ private companyDataUrl = 'http://localhost:8080/home';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
 
 
-  constructor(private http: HttpClient) { }
+  // constructor(private http: HttpClient) { }
+  //
+  //
+  //
+  // getCompanyData(id: number): Observable<CompanyData> {
+  //   const url = `${this.companyDataUrl}/${id}`;
+  //   return this.http.get<CompanyData>(url);
+  // }
 
-
-
-  getCompanyData(id: number): Observable<CompanyData> {
-    const url = `${this.companyDataUrl}/${id}`;
-    return this.http.get<CompanyData>(url);
-  }
-
-  updateCompanyData(companyData: CompanyData): Observable<CompanyData> {
-    const url = `${this.companyDataUrl}/${companyData.id}`;
-    return this.http.put<CompanyData>(url, this.companyDataUrl, this.httpOptions);
-  }
+  // updateCompanyData(companyData: CompanyData): Observable<CompanyData> {
+  //   const url = `${this.companyDataUrl}/${companyData.id}`;
+  //   return this.http.put<CompanyData>(url, this.companyDataUrl, this.httpOptions);
+  // }
 }
