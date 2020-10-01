@@ -17,9 +17,9 @@ public class RentalDomainServiceImpl implements RentalDomainService {
     }
 
     @Override
-    public Rental getRentalInfo() {
-        //for now we expect one and only Rental entry with correct data
-        return rentalRepository.findAll().get(0);
+    public Rental getRentalInfo(Long id) {
+        Optional<Rental> optRental =  rentalRepository.findById(id);
+        return optRental.orElse(null);
     }
 
     @Override

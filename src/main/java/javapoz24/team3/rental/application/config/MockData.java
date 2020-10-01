@@ -6,12 +6,10 @@ import javapoz24.team3.rental.domain.emploee.Positions;
 import javapoz24.team3.rental.domain.rental.Address;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import javapoz24.team3.rental.domain.rental.Rental;
-import javapoz24.team3.rental.domain.rental.RentalDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -77,6 +75,8 @@ public class MockData {
 //        branches.add(branch3);
 
         rentalService.saveRentalInfoData(rental);
+        RentalId.getInstance().setId(rental.getId());
+        System.out.println("RentalId Id:" + RentalId.getInstance().getId());
 
         rentalService.saveBranch(branch3);
 
