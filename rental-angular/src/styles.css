@@ -44,6 +44,7 @@ app-root {
   background-color:rgb(159, 207, 240);
   display: flex;
   flex-flow: wrap;
+  justify-content: center;
 
 
 
