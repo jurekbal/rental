@@ -14,14 +14,14 @@ export class CompanyDataService {
   };
 
 
-  // constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
 
-  // getCompanyData(id: number): Observable<CompanyData> {
-  //   const url = `${this.companyDataUrl}/${id}`;
-  //   return this.http.get<CompanyData>(url);
-  // }
+  getCompanyData(id: number): Observable<CompanyData> {
+    const url = `${this.companyDataUrl}/${id}`;
+    return this.http.get<CompanyData>(url);
+  }
 
   // updateCompanyData(companyData: CompanyData): Observable<CompanyData> {
   //   const url = `${this.companyDataUrl}/${companyData.id}`;

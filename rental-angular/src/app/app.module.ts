@@ -7,10 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './componets/not-found/not-found.component';
 import { CompanyBranchComponent } from './componets/company-branch/company-branch.component';
 import { CarsComponent } from './componets/cars/cars.component';
-import { KlientsComponent } from './componets/clients/klients.component';
+import { ClientsComponent } from './componets/clients/clients.component';
 import { BookingComponent } from './componets/booking/booking.component';
 import { DataComponent } from './componets/data/data.component';
 import { HomeComponent } from './componets/home/home.component';
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { HomeComponent } from './componets/home/home.component';
     NotFoundComponent,
     CompanyBranchComponent,
     CarsComponent,
-    KlientsComponent,
+    ClientsComponent,
     BookingComponent,
     DataComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
