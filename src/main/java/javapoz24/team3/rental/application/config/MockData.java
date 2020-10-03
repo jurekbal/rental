@@ -1,10 +1,11 @@
 package javapoz24.team3.rental.application.config;
 
 import javapoz24.team3.rental.application.RentalService;
+import javapoz24.team3.rental.domain.emploee.Employee;
+import javapoz24.team3.rental.domain.emploee.Positions;
 import javapoz24.team3.rental.domain.rental.Address;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import javapoz24.team3.rental.domain.rental.Rental;
-import javapoz24.team3.rental.domain.rental.RentalDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +19,6 @@ public class MockData {
     @Autowired
     private RentalService rentalService;
 
-    @Autowired
-    private RentalDomainService rentalDomainService;
-
     @PostConstruct
     public void GenerateMockData() {
 
@@ -30,24 +28,57 @@ public class MockData {
 
         Set<CompanyBranch> branches = new HashSet<>();
 
+        Address addressOfCompany = new Address("Złota 44", "Warszawa", "00-020");
         Rental rental = new Rental(
                 "Car Rental Company",
                 "http://carrental.pl",
+                addressOfCompany,
                 "Stanisław Nowak",
                 "http://carrental.pl/logo.gif",
                 branches
         );
 
-        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental);
-        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental);
-        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental);
+        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>());
+        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>());
+        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>());
 
+        Employee e1 = Employee.builder()
+                .firstName("Marian")
+                .lastName("Modalski")
+                .position(Positions.REGULAR)
+                .companyBranch(branch1)
+                .build();
+        Employee e2 = Employee.builder()
+                .firstName("Adam")
+                .lastName("Mickiewicz")
+                .position(Positions.REGULAR)
+                .companyBranch(branch2)
+                .build();
+        Employee e3 = Employee.builder()
+                .firstName("Roman")
+                .lastName("Baraniecki")
+                .position(Positions.REGULAR)
+                .companyBranch(branch3)
+                .build();
+        Employee e4 = Employee.builder()
+                .firstName("Witold")
+                .lastName("Aramowski")
+                .position(Positions.MANAGER)
+                .companyBranch(branch3)
+                .build();
+
+        branch1.getEmployees().add(e1);
+        branch2.getEmployees().add(e2);
+        branch3.getEmployees().add(e3);
+        branch3.getEmployees().add(e4);
 
         branches.add(branch1);
         branches.add(branch2);
 //        branches.add(branch3);
 
         rentalService.saveRentalInfoData(rental);
+        RentalId.getInstance().setId(rental.getId());
+        System.out.println("RentalId Id:" + RentalId.getInstance().getId());
 
         rentalService.saveBranch(branch3);
 

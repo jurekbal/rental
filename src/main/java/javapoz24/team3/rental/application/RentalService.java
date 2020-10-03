@@ -1,5 +1,6 @@
 package javapoz24.team3.rental.application;
 
+import javapoz24.team3.rental.application.config.RentalId;
 import javapoz24.team3.rental.domain.rental.*;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ public class RentalService {
         this.rentalDomainService = rentalDomainService;
     }
 
-    public RentalDTO getRentalInfo() {
-        return RentalDTO.fromRental(rentalDomainService.getRentalInfo());
+    public RentalDTO getRentalInfo(Long id) {
+        return RentalDTO.fromRental(rentalDomainService.getRentalInfo(id));
     }
 
     public void saveRentalInfoData(Rental rental) {
@@ -28,10 +29,9 @@ public class RentalService {
     }
 
     public void addBranch(CompanyBranchDTO branchDTO) {
-        Rental rental = rentalDomainService.getRentalInfo();
+        Rental rental = rentalDomainService.getRentalInfo(RentalId.getInstance().getId());
         CompanyBranch branch = CompanyBranch.fromDTO(branchDTO, rental);
-        rental.getCompanyBranches().add(branch);
-        saveRentalInfoData(rental);
+        saveBranch(branch);
     }
 
     public List<CompanyBranchDTO> getAllBranches() {
@@ -45,7 +45,7 @@ public class RentalService {
     }
 
     public void updateRentalInfoData(RentalInfo rentalInfo) {
-        Rental rental = rentalDomainService.getRentalInfo();
+        Rental rental = rentalDomainService.getRentalInfo(RentalId.getInstance().getId());
         rental.setName(rentalInfo.getName());
         rental.setWebDomain(rentalInfo.getWebDomain());
         rental.setOwner(rentalInfo.getOwner());

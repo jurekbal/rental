@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class RentalInfo {
 
-    // Czy potrzebujemy tu id? Nasz rental ma zawsze id 1 - ale jeśli baza nada inny???
+    Long id;
 
     @NotBlank(message = "Nazwa nie może być pusta!")
     @Size(min = 2, max = 50)

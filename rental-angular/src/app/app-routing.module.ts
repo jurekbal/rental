@@ -1,12 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {EditComponent} from './edit/edit.component';
+import {EditComponent} from './components/edit-company-data/edit-company-data';
+import {NotFoundComponent} from './components/not-found/not-found.component';
+import {HomeComponent} from './components/home/home.component';
+import {CarsComponent} from './components/cars/cars.component';
+import {ClientsComponent} from './components/clients/clients.component';
+import {BookingComponent} from './components/booking/booking.component';
+import {CompanyBranchComponent} from './components/company-branch/company-branch.component';
+
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/edit', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'edit', component: EditComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'cars', component: CarsComponent },
+  { path: 'clients', component: ClientsComponent },
+  { path: 'booking', component: BookingComponent },
+  { path: 'branch', component: CompanyBranchComponent },
+
+
+  { path: '**', redirectTo: '/404', pathMatch: 'full' },
+  { path: '404', component: NotFoundComponent }
 
 ];
 

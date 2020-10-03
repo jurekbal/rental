@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Data
@@ -20,12 +18,13 @@ public class Rental extends BaseEntity {
 
     private String name;
     private String webDomain;
+    @Embedded
+    private Address address;
     private String owner;
     private String logoURL;
 
-    @OneToMany(mappedBy = "rental", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "rental", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
-    // bez tego wysypuje się z "Set" (ale "List" działa!?) / można zaimpl. też odpowiedni hashCode w CompanyBrnach
     private Set<CompanyBranch> companyBranches;
 
 }

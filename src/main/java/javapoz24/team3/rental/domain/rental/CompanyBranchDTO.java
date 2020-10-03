@@ -1,5 +1,7 @@
 package javapoz24.team3.rental.domain.rental;
 
+import javapoz24.team3.rental.domain.emploee.Employee;
+import javapoz24.team3.rental.domain.emploee.EmployeeDTO;
 import lombok.Value;
 
 import java.util.Set;
@@ -10,13 +12,16 @@ public class CompanyBranchDTO {
 
     Long id;
     Address address;
+    Set<EmployeeDTO> employees;
 
-    // TODO Lista pracowników, lista dostępnych aut
+    // TODO lista dostępnych aut
 
     public static CompanyBranchDTO fromCompanyBranch(CompanyBranch companyBranch) {
         return new CompanyBranchDTO(
                 companyBranch.getId(),
-                companyBranch.getAddress());
+                companyBranch.getAddress(),
+                EmployeeDTO.fromEmployeesSet(companyBranch.getEmployees())
+        );
     }
 
     public static Set<CompanyBranchDTO> fromCompanyBranchSet(Set<CompanyBranch> cbSet) {

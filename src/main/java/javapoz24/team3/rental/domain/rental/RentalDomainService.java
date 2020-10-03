@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface RentalDomainService {
 
-    Rental getRentalInfo();
+    Rental getRentalInfo(Long id);
 
     void saveRentalInfoData(Rental rental);
 

@@ -1,11 +1,10 @@
 package javapoz24.team3.rental.domain.emploee;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javapoz24.team3.rental.domain.base.BasePerson;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
@@ -14,11 +13,20 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties("companyBranch")
 public class Employee extends BasePerson {
 
     @Enumerated(value = EnumType.STRING)
     private Positions position;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private CompanyBranch companyBranch;
+
+    @Builder
+    public Employee(String firstName, String lastName, Positions position, CompanyBranch companyBranch) {
+        super(firstName, lastName);
+        this.position = position;
+        this.companyBranch = companyBranch;
+    }
 }
