@@ -29,7 +29,7 @@ public class CompanyBranch extends BaseEntity {
     private Set<Employee> employees;
 
 
-    // TODO Lista pracowników, lista dostępnych aut
+    // TODO lista dostępnych aut
 
     public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
 
