@@ -15,10 +15,10 @@ export class HomeComponent implements OnInit {
 companyData : CompanyData;
 
 
-  constructor(private homeService : RestService) { }
+  constructor(private restService : RestService) { }
 
   ngOnInit(): void {
-    this.homeService.getCompanyData().subscribe(value => {
+    this.restService.getCompanyData().subscribe(value => {
       this.companyData = value;
     });
   }
