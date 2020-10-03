@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {EditComponent} from './componets/edit-company-data/edit-company-data';
-import {NotFoundComponent} from './componets/not-found/not-found.component';
-import {HomeComponent} from './componets/home/home.component';
-import {CarsComponent} from './componets/cars/cars.component';
-import {ClientsComponent} from './componets/clients/clients.component';
-import {BookingComponent} from './componets/booking/booking.component';
-import {CompanyBranchComponent} from './componets/company-branch/company-branch.component';
+import {EditComponent} from './components/edit-company-data/edit-company-data';
+import {NotFoundComponent} from './components/not-found/not-found.component';
+import {HomeComponent} from './components/home/home.component';
+import {CarsComponent} from './components/cars/cars.component';
+import {ClientsComponent} from './components/clients/clients.component';
+import {BookingComponent} from './components/booking/booking.component';
+import {CompanyBranchComponent} from './components/company-branch/company-branch.component';
 
 
 
