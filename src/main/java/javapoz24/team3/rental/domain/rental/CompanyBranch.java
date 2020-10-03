@@ -1,12 +1,10 @@
 package javapoz24.team3.rental.domain.rental;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javapoz24.team3.rental.domain.base.BaseEntity;
 import javapoz24.team3.rental.domain.emploee.Employee;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,7 +34,7 @@ public class CompanyBranch extends BaseEntity {
         return new CompanyBranch(
                 companyBranchDTO.getAddress(),
                 rental,
-                Collections.EMPTY_SET  // to czy new HashSet<>()? - czy wywali przy add()?
+                new HashSet<>()
         );
     }
 

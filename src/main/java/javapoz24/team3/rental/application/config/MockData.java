@@ -28,9 +28,11 @@ public class MockData {
 
         Set<CompanyBranch> branches = new HashSet<>();
 
+        Address addressOfCompany = new Address("Złota 44", "Warszawa", "00-020");
         Rental rental = new Rental(
                 "Car Rental Company",
                 "http://carrental.pl",
+                addressOfCompany,
                 "Stanisław Nowak",
                 "http://carrental.pl/logo.gif",
                 branches
