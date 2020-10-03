@@ -11,6 +11,7 @@ public class RentalDTO {
     Long id;
     String name;
     String webDomain;
+    Address address;
     String owner;
     String logoURL;
     @JsonIgnoreProperties("rental")
@@ -21,6 +22,7 @@ public class RentalDTO {
                 rental.getId(),
                 rental.getName(),
                 rental.getWebDomain(),
+                rental.getAddress(),
                 rental.getOwner(),
                 rental.getLogoURL(),
                 CompanyBranchDTO.fromCompanyBranchSet(rental.getCompanyBranches())
