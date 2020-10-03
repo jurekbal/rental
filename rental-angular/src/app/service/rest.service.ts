@@ -1,0 +1,29 @@
+import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {CompanyData} from "./company-data";
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RestService {
+
+  readonly BASE_URL = 'http://localhost:8080';
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+
+  public getCompanyData(): Observable<CompanyData> {
+
+    return this.httpClient.get<CompanyData>(this.BASE_URL +'/home');
+  }
+
+}
+
+
+
+
+
+

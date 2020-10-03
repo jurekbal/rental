@@ -9,8 +9,9 @@ import { CompanyBranchComponent } from './components/company-branch/company-bran
 import { CarsComponent } from './components/cars/cars.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { BookingComponent } from './components/booking/booking.component';
-import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
+import {HomeComponent} from "./components/home/home.component";
+
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
     CarsComponent,
     ClientsComponent,
     BookingComponent,
-    HomeComponent,
+   HomeComponent,
 
   ],
   imports: [
