@@ -14,6 +14,7 @@ export class HomeService {
   public getCompanyData(): Observable<CompanyData> {
     return this.httpClient.get<CompanyData>('http://localhost:8080/home');
   }
+
 }
 
 
