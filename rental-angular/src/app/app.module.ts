@@ -11,6 +11,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { BookingComponent } from './components/booking/booking.component';
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from "./components/home/home.component";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -26,11 +27,12 @@ import {HomeComponent} from "./components/home/home.component";
    HomeComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
