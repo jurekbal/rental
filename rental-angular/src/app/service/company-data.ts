@@ -13,6 +13,7 @@ export interface CompanyData {
   id: number;
   name: string;
   webDomain: string;
+  address: Address;
   owner: string;
   logoURL: string;
   companyBranches: CompanyBranch[];

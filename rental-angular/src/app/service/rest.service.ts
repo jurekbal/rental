@@ -19,10 +19,6 @@ export class RestService {
 
     return this.httpClient.get<CompanyData>(this.BASE_URL +'/home');
   }
-  public getCompanyAddress(): Observable<Address> {
-
-    return this.httpClient.get<Address>(this.BASE_URL +'/home');
-  }
 }
 
 
