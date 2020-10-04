@@ -1,4 +1,5 @@
 
+
 .tdName{
   width: 20%
 }
@@ -7,4 +8,9 @@
 }
 .tableDiv{
   width: 100%
+}
+
+.editblock {
+  min-width: 500px;
+  max-width: 700px;
 }
