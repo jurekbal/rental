@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
+import {HttpClient,  HttpHeaders} from '@angular/common/http';
 import { CompanyData} from "./company-data";
 import { catchError } from 'rxjs/operators';
 import {  throwError } from 'rxjs';

@@ -19,8 +19,8 @@
             <div class="tableDiv">
               <input type="text"  id="name" [(ngModel)]="companyData.name"></div></td>
           <td>
-            <button  (click)="save()" class="button button-green" [routerLink]="['/home']"><i class="icon-wrench"></i></button>
-            <button  class="button button-red" [routerLink]="['/home']"><i class="icon-cancel-circled"></i></button>
+            <button  (click)="save()" class="button button-green" ><i class="icon-wrench"></i></button>
+            <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
           </td>
         </tr>
         <tr>
@@ -30,25 +30,25 @@
           <td>
             <div class="tableDiv"> <input type="text" id="webDomain" [(ngModel)]="companyData.webDomain"></div></td>
           <td>
-            <button class="button button-green"><i class="icon-wrench"></i></button>
+            <button (click)="save()" class="button button-green"><i class="icon-wrench"></i></button>
             <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
           </td>
         </tr>
         <tr>
-<!--          <td>      <label for="company_address">Adres: </label>-->
-<!--          </td>-->
-<!--          <td><div class="tableDiv"><input type="text" id="company_address" ></div></td>-->
-<!--          <td>-->
-<!--            <button class="button button-green"><i class="icon-wrench"></i></button>-->
-<!--            <button  class="button button-red"><i class="icon-cancel-circled"></i></button>-->
-<!--          </td>-->
+          <td>      <label for="company_address">Adres: </label>
+          </td>
+          <td><div class="tableDiv"><input type="text" id="company_address" ></div></td>
+          <td>
+            <button class="button button-green"><i class="icon-wrench"></i></button>
+            <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
+          </td>
         </tr>
         <tr>
           <td>      <label for="owner">Właściciel: </label>
           </td>
           <td><div class="tableDiv"> <input type="text" id="owner"[(ngModel)]="companyData.owner" ></div></td>
           <td>
-            <button class="button button-green"><i class="icon-wrench"></i></button>
+            <button (click)="save()" class="button button-green"><i class="icon-wrench"></i></button>
             <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
           </td>
         </tr>
