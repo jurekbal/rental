@@ -1,7 +1,4 @@
-<section >
-
-
-
+<section>
 
     <div class="editblock">
 
@@ -17,65 +14,59 @@
         </thead>
         <tbody>
         <tr>
-          <td  class="tdName" >    <label for="company_name">Nazwa:</label></td>
+          <td  class="tdName" >    <label for="name">Nazwa: </label></td>
           <td class="td57">
             <div class="tableDiv">
-              <input type="text"  id="company_name" ></div></td>
+              <input type="text"  id="name" [(ngModel)]="companyData.name"></div></td>
           <td>
-            <button class="button button-green"><i class="icon-wrench"></i></button>
-            <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
+            <button (click)="save()" class="button button-green" [routerLink]="['/home']"><i class="icon-wrench"></i></button>
+            <button  class="button button-red" [routerLink]="['/home']"><i class="icon-cancel-circled"></i></button>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="domain">Domena:</label>
+            <label for="webDomain">Domena: </label>
 
           <td>
-            <div class="tableDiv"> <input type="text" id="domain" ></div></td>
+            <div class="tableDiv"> <input type="text" id="webDomain" [(ngModel)]="companyData.webDomain"></div></td>
           <td>
             <button class="button button-green"><i class="icon-wrench"></i></button>
             <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
           </td>
         </tr>
         <tr>
-          <td>      <label for="company_adress">Adres:</label>
+<!--          <td>      <label for="company_address">Adres: </label>-->
+<!--          </td>-->
+<!--          <td><div class="tableDiv"><input type="text" id="company_address" ></div></td>-->
+<!--          <td>-->
+<!--            <button class="button button-green"><i class="icon-wrench"></i></button>-->
+<!--            <button  class="button button-red"><i class="icon-cancel-circled"></i></button>-->
+<!--          </td>-->
+        </tr>
+        <tr>
+          <td>      <label for="owner">Właściciel: </label>
           </td>
-          <td><div class="tableDiv"><input type="text" id="company_adress" ></div></td>
+          <td><div class="tableDiv"> <input type="text" id="owner"[(ngModel)]="companyData.owner" ></div></td>
           <td>
             <button class="button button-green"><i class="icon-wrench"></i></button>
             <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
           </td>
         </tr>
         <tr>
-          <td>      <label for="company_owner">Właściciel:</label>
-          </td>
-          <td><div class="tableDiv"> <input type="text" id="company_owner" ></div></td>
-          <td>
-            <button class="button button-green"><i class="icon-wrench"></i></button>
-            <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>         <label for="logotype">Logotyp</label>
+          <td>         <label for="logoURL">Logotyp: </label>
 
           </td>
-          <td> <div class="tableDiv"> <input type="text" id="logotype" ></div></td>
+          <td> <div class="tableDiv"> <input type="text" id="logoURL"[(ngModel)]="companyData.logoURL" ></div></td>
           <td>
-            <button class="button button-green"><i class="icon-wrench"></i></button>
+            <button (click)="save()" class="button button-green" ><i class="icon-wrench"></i></button>
             <button  class="button button-red"><i class="icon-cancel-circled"></i></button>
           </td>
         </tr>
         </tbody>
       </table>
-
-
-
-
-
-
-
-
     </div>
+
+
     <div class="block">
       <b>Edycja adresu</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nam officiis corporis, obcaecati
     </div>

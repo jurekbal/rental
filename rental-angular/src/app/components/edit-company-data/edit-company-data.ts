@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import {CompanyData} from "../../service/company-data";
+import {RestService} from "../../service/rest.service";
 
 @Component({
   selector: 'app-edit',
@@ -8,31 +10,27 @@ import { Location } from '@angular/common';
   styleUrls: ['./edit-company-data.css']
 })
 export class EditComponent implements OnInit {
-
+companyData: CompanyData;
 
 
   constructor(
     private route: ActivatedRoute,
-
+    private restService : RestService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
-    // this.getCompanyData();
+    this.restService.getCompanyData().subscribe(value => {
+      this.companyData = value;
+    });
   }
-  // getCompanyData(): void {
+  goBack(): void {
+    this.location.back();
+  }
 
-  //   const id = +this.route.snapshot.paramMap.get('id');
-  //   this.companyDataService.getCompanyData(id)
-  //     .subscribe(companyData => this.companyData = companyData);
-  // }
-  //
-  // goBack(): void {
-  //   this.location.back();
-  // }
-  // save(): void {
+  save(): void {
 
-    // this.companyDataService.updateCompanyData(this.companyData)
-    //   .subscribe(() => this.goBack());
-  // }
+    this.restService.updateCompanyData(this.companyData)
+      .subscribe(() => this.goBack());
+  }
 }
