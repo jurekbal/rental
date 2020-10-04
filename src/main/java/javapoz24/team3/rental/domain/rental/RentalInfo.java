@@ -21,7 +21,6 @@ public class RentalInfo {
     @Size(max = 50)
     String webDomain;
 
-
     @NotBlank(message = "Nazwa właściciela nie może być pusta")
     @Size(min = 1, max = 50)
     String owner;

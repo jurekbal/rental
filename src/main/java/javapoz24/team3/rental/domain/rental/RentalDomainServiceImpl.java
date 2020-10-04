@@ -39,7 +39,7 @@ public class RentalDomainServiceImpl implements RentalDomainService {
 
     @Override
     public CompanyBranch getBranchById(Long id) {
-        Optional<CompanyBranch> optBranch = branchRepository.findById(id);
-        return optBranch.orElse(null);
+        Optional<CompanyBranch> optionalCompanyBranch = branchRepository.findById(id);
+        return optionalCompanyBranch.orElse(null);
     }
 }

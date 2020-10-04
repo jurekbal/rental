@@ -41,7 +41,11 @@ public class RentalService {
     }
 
     public CompanyBranchDTO getBranchById(Long id) {
-        return CompanyBranchDTO.fromCompanyBranch(rentalDomainService.getBranchById(id));
+        CompanyBranch companyBranch = rentalDomainService.getBranchById(id);
+        if (companyBranch != null) {
+            return CompanyBranchDTO.fromCompanyBranch(companyBranch);
+        }
+        return null;
     }
 
     public void updateRentalInfoData(RentalInfo rentalInfo) {
