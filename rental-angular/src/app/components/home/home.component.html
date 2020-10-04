@@ -24,7 +24,7 @@
       <tr>
         <td>      <label >Adres:</label>
         </td>
-        <td></td>
+        <td><p>ul. {{companyData.address?.streetWithNumber}}, {{companyData.address?.postalCode}} {{companyData.address.city}} </p></td>
       </tr>
       <tr>
         <td>      <label>Właściciel:</label>
@@ -36,6 +36,12 @@
 
         </td>
         <td>  <p>{{companyData?.logoURL}}</p></td>
+      </tr>
+      <tr>
+        <td>         <label >Oddziały</label>
+
+        </td>
+        <td> <a></a> <p>Tu będzie się wyświetlao ile jest dostępnych odziałów z odnośnikiem do listy oddziałów</p></td>
       </tr>
       </tbody>
     </table>

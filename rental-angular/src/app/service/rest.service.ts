@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {CompanyData} from "./company-data";
+import {Address, CompanyData} from "./company-data";
 
 
 @Injectable({
@@ -19,7 +19,6 @@ export class RestService {
 
     return this.httpClient.get<CompanyData>(this.BASE_URL +'/home');
   }
-
 }
 
 
