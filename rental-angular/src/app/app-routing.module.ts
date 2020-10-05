@@ -6,7 +6,7 @@ import {HomeComponent} from './components/home/home.component';
 import {CarsComponent} from './components/cars/cars.component';
 import {ClientsComponent} from './components/clients/clients.component';
 import {BookingComponent} from './components/booking/booking.component';
-import {CompanyBranchComponent} from './components/company-branch/company-branch.component';
+import {CompanyBranchComponent} from './components/branches/company-branch.component';
 
 
 
