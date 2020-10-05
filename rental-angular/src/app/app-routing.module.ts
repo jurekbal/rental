@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'cars', component: CarsComponent },
   { path: 'clients', component: ClientsComponent },
   { path: 'booking', component: BookingComponent },
-  { path: 'branch', component: CompanyBranchComponent },
+  { path: 'branches', component: CompanyBranchComponent },
 
 
   { path: '**', redirectTo: '/404', pathMatch: 'full' },
