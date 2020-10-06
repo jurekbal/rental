@@ -13,5 +13,5 @@ public interface RentalDomainService {
 
     List<CompanyBranch> getAllBranches();
 
-    CompanyBranch getBranchById(Long id);
+    Optional<CompanyBranch> getBranchById(Long id);
 }

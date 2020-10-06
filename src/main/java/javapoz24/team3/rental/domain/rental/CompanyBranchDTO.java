@@ -1,13 +1,10 @@
 package javapoz24.team3.rental.domain.rental;
 
-import javapoz24.team3.rental.domain.emploee.Employee;
 import javapoz24.team3.rental.domain.emploee.EmployeeDTO;
 import lombok.Value;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javapoz24.team3.rental.domain.base.BasePerson;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
