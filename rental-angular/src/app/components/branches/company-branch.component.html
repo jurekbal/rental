@@ -1,9 +1,9 @@
 <section>
 <div class="editblock">
-  <table>
+  <table *ngFor="let branch of branches">
     <thead>
-    <tr>
-      <th colspan="3">Oddział</th>
+    <tr >
+      <th colspan="3" >Oddział nr. {{branch.id}}</th>
     </tr>
     </thead>
     <tbody>

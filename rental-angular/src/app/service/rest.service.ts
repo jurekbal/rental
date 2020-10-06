@@ -28,7 +28,11 @@ export class RestService {
     return this.httpClient.put<CompanyData>(this.BASE_URL + '/home', companyData, this.httpOptnions);
 
   }
+public getBranch(id: number): Observable<Branch>{
+  const url = `${this.BASE_URL + '/branches'}/${id}`;
+  return this.httpClient.get<Branch>(url);
 
+}
   public getBranches(): Observable<Branch[]> {
 
     return this.httpClient.get<Branch[]>(this.BASE_URL + '/branches');
