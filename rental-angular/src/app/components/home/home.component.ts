@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CompanyData, HomeService} from "../../services/home.service";
+import {Address, CompanyData} from "../../service/company-data";
+import {RestService} from "../../service/rest.service";
 
 
 
@@ -13,10 +14,11 @@ export class HomeComponent implements OnInit {
 
 companyData : CompanyData;
 
-  constructor(private homeService : HomeService) { }
+
+  constructor(private restService : RestService) { }
 
   ngOnInit(): void {
-    this.homeService.getCompanyData().subscribe(value => {
+    this.restService.getCompanyData().subscribe(value => {
       this.companyData = value;
     });
   }

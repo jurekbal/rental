@@ -1,7 +1,7 @@
 <section>
   <div class="editblock">
     <h4>Dane firmy</h4>
-    <table style="width: 100%; height: 13em">
+    <table class="table100-13">
       <thead>
       <tr>
         <th> </th>
@@ -10,32 +10,38 @@
       </thead>
       <tbody>
       <tr>
-        <td style="width: 20%">     <label >Nazwa:</label></td>
-        <td><p>{{companyData.name}}</p>
+        <td class="tdWidth20">     <label >Nazwa: </label></td>
+        <td><p>{{companyData?.name}}</p>
         </td>
       </tr>
       <tr>
         <td>
-          <label>Domena:</label>
+          <label>Domena: </label>
 
-        <td>   <p>{{companyData.webDomain}}</p>     <td>
+        <td>   <p><a href="{{companyData?.webDomain}}">{{companyData?.webDomain}}</a></p>     <td>
       </td>
       </tr>
       <tr>
-        <td>      <label >Adres:</label>
+        <td>      <label >Adres: </label>
         </td>
-        <td></td>
+        <td><p>ul. {{companyData?.address?.streetWithNumber}}, {{companyData?.address?.postalCode}} {{companyData?.address?.city}} </p></td>
       </tr>
       <tr>
-        <td>      <label>Właściciel:</label>
+        <td>      <label>Właściciel: </label>
         </td>
-        <td> <p>{{companyData.owner}}</p></td>
+        <td> <p>{{companyData?.owner}}</p></td>
       </tr>
       <tr>
-        <td>         <label >Logotyp</label>
+        <td>         <label>Logotyp: </label>
 
         </td>
-        <td>  <p>{{companyData.logoURL}}</p></td>
+        <td>  <p>{{companyData?.logoURL}}</p></td>
+      </tr>
+      <tr>
+        <td>         <label >Oddziały: </label>
+
+        </td>
+        <td> <a></a> <p>Tu będzie się wyświetlało ile jest dostępnych odziałów z odnośnikiem do listy oddziałów</p></td>
       </tr>
       </tbody>
     </table>
