@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CompanyData} from "./company-data";
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-import {Branch} from "./branch";
+import {Branch, Employee} from "./branch";
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +53,14 @@ public getBranch(id: number): Observable<Branch>{
     return this.httpClient.put<Branch>(url, branch, this.httpOptnions)
   }
 
-
+  // public getEmployee(id: number): Observable<Employee>{
+  //   const url = `${this.BASE_URL + '/branches'}/${id}`;
+  //   return this.httpClient.get<Employee>(url);
+  //
+  // }
+  // public getEmployees(): Observable<Employee[]> {
+  //   return this.httpClient.get<Employee[]>(this.BASE_URL + '/branches');
+  // }
   // public update(companyData): Observable<CompanyData> {
   //    return this.httpClient.put<CompanyData>(this.BASE_URL + '/home/', JSON.stringify(companyData), this.httpOptnions)
   //      .pipe(

@@ -14,5 +14,6 @@ export interface Employee {
 export interface Branch {
   id: number;
   address: Address;
-  employees: Employee[];
+ employees: Employee[];
+  employee: Employee;
 }
