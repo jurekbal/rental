@@ -1,7 +1,9 @@
 package javapoz24.team3.rental.domain.base;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.MappedSuperclass;
 

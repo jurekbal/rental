@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -21,6 +22,8 @@ public class RentalInfo {
     @Size(max = 50)
     String webDomain;
 
+    @Valid
+    Address address;
 
     @NotBlank(message = "Nazwa właściciela nie może być pusta")
     @Size(min = 1, max = 50)

@@ -1,6 +1,7 @@
 package javapoz24.team3.rental.domain.rental;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RentalDomainService {
 
@@ -12,5 +13,5 @@ public interface RentalDomainService {
 
     List<CompanyBranch> getAllBranches();
 
-    CompanyBranch getBranchById(Long id);
+    Optional<CompanyBranch> getBranchById(Long id);
 }
