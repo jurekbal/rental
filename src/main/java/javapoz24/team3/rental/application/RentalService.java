@@ -5,6 +5,7 @@ import javapoz24.team3.rental.domain.rental.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,14 +41,15 @@ public class RentalService {
                 .collect(Collectors.toList());
     }
 
-    public CompanyBranchDTO getBranchById(Long id) {
-        return CompanyBranchDTO.fromCompanyBranch(rentalDomainService.getBranchById(id));
+    public Optional<CompanyBranch> getBranchById(Long id) {
+        return rentalDomainService.getBranchById(id);
     }
 
     public void updateRentalInfoData(RentalInfo rentalInfo) {
         Rental rental = rentalDomainService.getRentalInfo(RentalId.getInstance().getId());
         rental.setName(rentalInfo.getName());
         rental.setWebDomain(rentalInfo.getWebDomain());
+        rental.setAddress(rentalInfo.getAddress());
         rental.setOwner(rentalInfo.getOwner());
         rental.setLogoURL(rentalInfo.getLogoURL());
 
