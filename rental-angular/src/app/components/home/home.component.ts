@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Address, CompanyData} from "../../service/company-data";
+import {Address, CompanyBranch, CompanyData} from "../../service/company-data";
 import {RestService} from "../../service/rest.service";
 
 
@@ -13,7 +13,7 @@ import {RestService} from "../../service/rest.service";
 export class HomeComponent implements OnInit {
 
 companyData : CompanyData;
-
+companyBranch: CompanyBranch[];
 
   constructor(private restService : RestService) { }
 
@@ -22,5 +22,6 @@ companyData : CompanyData;
       this.companyData = value;
     });
   }
+
 }
 
