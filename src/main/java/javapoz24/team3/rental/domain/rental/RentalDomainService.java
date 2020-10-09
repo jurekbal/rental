@@ -9,7 +9,7 @@ public interface RentalDomainService {
 
     void saveRentalInfoData(Rental rental);
 
-    void saveBranch(CompanyBranch branch);
+    CompanyBranch saveBranch(CompanyBranch branch);
 
     List<CompanyBranch> getAllBranches();
 

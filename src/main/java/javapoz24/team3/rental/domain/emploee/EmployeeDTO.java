@@ -12,13 +12,15 @@ public class EmployeeDTO {
     String firstName;
     String lastName;
     Positions position;
+    Long branchId;
 
     public static EmployeeDTO fromEmployee(Employee employee) {
         return new EmployeeDTO(
                 employee.getId(),
                 employee.getFirstName(),
                 employee.getLastName(),
-                employee.getPosition()
+                employee.getPosition(),
+                employee.getCompanyBranch().getId()
         );
     }
 
