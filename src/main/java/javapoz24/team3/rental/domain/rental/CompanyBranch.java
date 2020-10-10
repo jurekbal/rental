@@ -1,6 +1,7 @@
 package javapoz24.team3.rental.domain.rental;
 
 import javapoz24.team3.rental.domain.base.BaseEntity;
+import javapoz24.team3.rental.domain.car.Car;
 import javapoz24.team3.rental.domain.emploee.Employee;
 import lombok.*;
 
@@ -26,14 +27,16 @@ public class CompanyBranch extends BaseEntity {
     @EqualsAndHashCode.Exclude
     private Set<Employee> employees;
 
-
-    // TODO lista dostępnych aut
+    @OneToMany(mappedBy = "companyBranch", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    private Set<Car> cars;
 
     public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
 
         return new CompanyBranch(
                 companyBranchDTO.getAddress(),
                 rental,
+                new HashSet<>(),
                 new HashSet<>()
         );
     }

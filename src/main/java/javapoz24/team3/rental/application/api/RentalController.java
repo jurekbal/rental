@@ -51,27 +51,4 @@ public class RentalController {
         rentalService.addOrUpdateBranch(companyBranchDTO);
     }
 
-    @GetMapping("/employees")
-    public Set<EmployeeDTO> getAllEmployees() {
-       return rentalService.getAllEmployees();
-    }
-
-    @GetMapping("/employees/{id}")
-    public EmployeeDTO getEmployeeById(@PathVariable(name = "id") Long id) {
-        Optional<Employee> optEmployee = rentalService.getEmployeeById(id);
-        return optEmployee.map(EmployeeDTO::fromEmployee).orElse(null);
-    }
-
-    @GetMapping("/employees/bybranch/{branchId}")
-    public Set<EmployeeDTO> getEmployeesByBranchId(@PathVariable(name = "branchId") Long branchId) {
-        return rentalService.getEmployeesByBranchId(branchId);
-    }
-
-    @PutMapping("/employees")
-    public void putEmployee(@RequestBody @NotNull @Valid EmployeeDTO employeeDTO) {
-        rentalService.addOrUpdateEmployee(employeeDTO);
-    }
-
-
-
 }
