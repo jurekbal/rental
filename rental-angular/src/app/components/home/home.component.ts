@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Address, CompanyBranch, CompanyData} from "../../service/company-data";
 import {RestService} from "../../service/rest.service";
+import {Branch} from "../../service/branch";
 
 
 
@@ -13,7 +14,7 @@ import {RestService} from "../../service/rest.service";
 export class HomeComponent implements OnInit {
 
 companyData : CompanyData;
-companyBranch: CompanyBranch[];
+  branches: Branch[];
 
   constructor(private restService : RestService) { }
 

@@ -1,0 +1,17 @@
+<table >
+  <thead>
+  <tr>
+    <th colspan="3">Lista pracowników</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr >
+    <td colspan="2"><h6>Imię i nazwisko</h6></td>
+    <td><h6>Pozcyja</h6></td>
+  </tr>
+  <tr  *ngFor="let employee of branch.employees">
+    <td colspan="2"><p>{{employee?.firstName}} {{employee?.lastName}}</p></td>
+    <td><p>{{employee?.position}}</p></td>
+  </tr>
+  </tbody>
+</table>
