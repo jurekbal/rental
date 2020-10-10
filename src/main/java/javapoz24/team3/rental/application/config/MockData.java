@@ -38,9 +38,9 @@ public class MockData {
                 branches
         );
 
-        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>());
-        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>());
-        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>());
+        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>(), new HashSet<>());
+        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>(), new HashSet<>());
+        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>(), new HashSet<>());
 
         Employee e1 = Employee.builder()
                 .firstName("Marian")

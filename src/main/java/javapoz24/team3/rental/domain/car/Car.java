@@ -1,16 +1,14 @@
 package javapoz24.team3.rental.domain.car;
 
 import javapoz24.team3.rental.domain.base.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import javapoz24.team3.rental.domain.rental.CompanyBranch;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -18,6 +16,7 @@ public class Car extends BaseEntity {
 
     private String brand; //marka
     private String model;
+    private String regNumber;
     @Enumerated(value = EnumType.STRING)
     private CarBodyStyle bodyType;
     private Integer productionYear;
@@ -26,4 +25,26 @@ public class Car extends BaseEntity {
     @Enumerated(value = EnumType.STRING)
     private CarStatus status;
     private BigDecimal pricing;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private CompanyBranch companyBranch;
+
+    @Builder
+    public Car(Long id, String brand, String model, String regNumber,
+               CarBodyStyle bodyType, Integer productionYear,
+               String paintColor, Long mileage, CarStatus status,
+               BigDecimal pricing, CompanyBranch companyBranch) {
+        setId(id);
+        this.brand = brand;
+        this.model = model;
+        this.regNumber = regNumber;
+        this.bodyType = bodyType;
+        this.productionYear = productionYear;
+        this.paintColor = paintColor;
+        this.mileage = mileage;
+        this.status = status;
+        this.pricing = pricing;
+        this.companyBranch = companyBranch;
+    }
 }
