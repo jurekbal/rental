@@ -2,9 +2,6 @@ package javapoz24.team3.rental.application.api;
 
 import javapoz24.team3.rental.application.RentalService;
 import javapoz24.team3.rental.application.config.RentalId;
-import javapoz24.team3.rental.domain.emploee.Employee;
-import javapoz24.team3.rental.domain.emploee.EmployeeDTO;
-import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import javapoz24.team3.rental.domain.rental.CompanyBranchDTO;
 import javapoz24.team3.rental.domain.rental.RentalDTO;
 import javapoz24.team3.rental.domain.rental.RentalInfo;
@@ -13,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @RestController
 public class RentalController {
@@ -37,8 +32,9 @@ public class RentalController {
 
     @GetMapping("/branches/{id}")
     public CompanyBranchDTO getBranchById(@PathVariable Long id) {
-        Optional<CompanyBranch> optCompanyBranch = rentalService.getBranchById(id);
-        return optCompanyBranch.map(CompanyBranchDTO::fromCompanyBranch).orElse(null);
+        return rentalService.getBranchById(id)
+                .map(CompanyBranchDTO::fromCompanyBranch)
+                .orElse(null);
     }
 
     @PutMapping("/home")

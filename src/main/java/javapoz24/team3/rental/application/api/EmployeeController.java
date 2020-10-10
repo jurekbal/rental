@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -27,8 +26,9 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public EmployeeDTO getEmployeeById(@PathVariable(name = "id") Long id) {
-        Optional<Employee> optEmployee = employeeService.getEmployeeById(id);
-        return optEmployee.map(EmployeeDTO::fromEmployee).orElse(null);
+        return employeeService.getEmployeeById(id)
+                .map(EmployeeDTO::fromEmployee)
+                .orElse(null);
     }
 
     @GetMapping("/bybranch/{branchId}")
