@@ -3,6 +3,34 @@
     <tr >
       <th colspan="3" ><h4>Oddział nr. {{branch?.id}} <br/> ul. {{branch?.address?.streetWithNumber}}, {{branch?.address?.postalCode}} {{branch?.address?.city}}</h4></th>
 
-    <th> dodaj/ zamknij</th></tr>
+    <th>  <h5> Zamknij</h5> <button  class="button button-red"><i class="icon-wrench"></i></button></th></tr>
+
+
+
+
+
+  </table>
+   <h5> Dodaj</h5> <button (click)="showAdd = !showAdd" class="button button-green"><i class="icon-credit-card"></i></button>
+  <table *ngIf="showAdd"><h5> Wpisz dane:</h5>
+   <tr>
+    <td>      <label for="streetWithNumber">Ulica: </label>
+    </td>
+    <td><div class="tableDiv"><input type="text" id="streetWithNumber" #streetWithNumber ></div></td>
+   </tr>
+  <tr>
+  <td>      <label for="city">Miasto: </label>
+  </td>
+  <td><div class="tableDiv"><input type="text" id="city" #city ></div></td>
+  <td>
+  </tr>
+    <td>      <label for="postalCode">Kod pocztowy: </label>
+    </td>
+    <td><div class="tableDiv"><input type="text" id="postalCode" #postalCode ></div></td>
+    <td>
+    <td>
+      <button (click)="addBranch(streetWithNumber.value, city.value, postalCode.value);
+              streetWithNumber.value=''; city.value=''; postalCode.value=''" class="button button-green"><i class="icon-wrench" ></i></button>
+      <button  class="button button-red"><i class="icon-cancel-circled" ></i></button>
+    </td>
   </table>
 </div>

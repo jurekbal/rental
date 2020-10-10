@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Address, CompanyBranch, CompanyData} from "../../service/company-data";
 import {RestService} from "../../service/rest.service";
 import {Branch} from "../../service/branch";
@@ -12,10 +12,13 @@ import {Branch} from "../../service/branch";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+@Input() branches:Branch[];
 
 companyData : CompanyData;
-  branches: Branch[];
-  show = false;
+
+
+  showBranchList = false;
+
 
   constructor(private restService : RestService) { }
 
@@ -24,6 +27,8 @@ companyData : CompanyData;
       this.companyData = value;
     });
   }
+
+
 
 
 }
