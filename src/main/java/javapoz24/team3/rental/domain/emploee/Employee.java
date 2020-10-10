@@ -23,8 +23,9 @@ public class Employee extends BasePerson {
     private CompanyBranch companyBranch;
 
     @Builder
-    public Employee(String firstName, String lastName, Positions position, CompanyBranch companyBranch) {
+    public Employee(Long id, String firstName, String lastName, Positions position, CompanyBranch companyBranch) {
         super(firstName, lastName);
+        setId(id);
         this.position = position;
         this.companyBranch = companyBranch;
     }

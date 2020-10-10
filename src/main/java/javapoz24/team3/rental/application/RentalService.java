@@ -82,7 +82,7 @@ public class RentalService {
         Optional<CompanyBranch> optBranch = getBranchById(employeeDTO.getBranchId());
         if (optBranch.isPresent()) {
             Employee employee = new Employee(
-                    //TODO id! do updateu - problem z konstruktorami w lomboku
+                    employeeDTO.getId(),
                     employeeDTO.getFirstName(),
                     employeeDTO.getLastName(),
                     employeeDTO.getPosition(),
@@ -90,6 +90,6 @@ public class RentalService {
             );
             employeeDomainService.saveEmployee(employee);
         }
-        //TODO Zwrócić odpowiedni kod w zależnoścu czy utworzył czy updateował?
+        //TODO Zwrócić odpowiedni kod/rzucić wyjątkiem w zależności od rezultatu?
     }
 }
