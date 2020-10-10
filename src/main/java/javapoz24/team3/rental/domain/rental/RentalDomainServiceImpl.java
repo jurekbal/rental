@@ -28,8 +28,8 @@ public class RentalDomainServiceImpl implements RentalDomainService {
     }
 
     @Override
-    public void saveBranch(CompanyBranch branch) {
-        branchRepository.save(branch);
+    public CompanyBranch saveBranch(CompanyBranch branch) {
+        return branchRepository.save(branch);
     }
 
     @Override
@@ -39,8 +39,6 @@ public class RentalDomainServiceImpl implements RentalDomainService {
 
     @Override
     public Optional<CompanyBranch> getBranchById(Long id) {
-//        Optional<CompanyBranch> optionalCompanyBranch = branchRepository.findById(id);
-//        return optionalCompanyBranch.orElse(null);
         return branchRepository.findById(id);
     }
 }
