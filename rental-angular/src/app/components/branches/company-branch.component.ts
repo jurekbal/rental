@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from "../../service/rest.service";
 import {ActivatedRoute} from "@angular/router";
-import {Branch, Employee} from "../../service/branch";
+import {Branch, EmployeeB} from "../../service/branch";
 import {Location} from "@angular/common";
 
 @Component({
@@ -12,7 +12,7 @@ import {Location} from "@angular/common";
 export class CompanyBranchComponent implements OnInit {
   branches: Branch[];
   branch: Branch;
-  employee: Employee;
+  employeeB: EmployeeB;
 
 
 

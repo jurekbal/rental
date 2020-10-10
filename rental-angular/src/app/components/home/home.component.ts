@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
 companyData : CompanyData;
   branches: Branch[];
+  show = false;
 
   constructor(private restService : RestService) { }
 
@@ -23,6 +24,7 @@ companyData : CompanyData;
       this.companyData = value;
     });
   }
+
 
 }
 

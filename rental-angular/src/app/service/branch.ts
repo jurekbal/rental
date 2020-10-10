@@ -4,7 +4,7 @@ export interface Address {
   postalCode: string;
 }
 
-export interface Employee {
+export interface EmployeeB {
   id: number;
   firstName: string;
   lastName: string;
@@ -14,6 +14,6 @@ export interface Employee {
 export interface Branch {
   id: number;
   address: Address;
- employees: Employee[];
-  employee: Employee;
+ employees: EmployeeB[];
+  employee: EmployeeB;
 }

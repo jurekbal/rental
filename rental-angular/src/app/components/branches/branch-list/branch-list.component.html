@@ -1,6 +1,8 @@
-  <table *ngFor="let branch of branches">
+<div class="editblock">
+<table *ngFor="let branch of branches">
     <tr >
       <th colspan="3" ><h4>Oddział nr. {{branch?.id}} <br/> ul. {{branch?.address?.streetWithNumber}}, {{branch?.address?.postalCode}} {{branch?.address?.city}}</h4></th>
-    </tr>
-  </table>
 
+    <th> dodaj/ zamknij</th></tr>
+  </table>
+</div>

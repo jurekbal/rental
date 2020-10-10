@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Branch, Employee} from "../../service/branch";
+
 import {ActivatedRoute} from "@angular/router";
 import {RestService} from "../../service/rest.service";
+import {Employee} from "../../service/employee";
+
+
 
 @Component({
   selector: 'app-employees-list',
@@ -9,9 +12,11 @@ import {RestService} from "../../service/rest.service";
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent implements OnInit {
-  employee: Employee;
-  branches: Branch[];
-  branch: Branch;
+employee : Employee;
+employees: Employee[];
+
+
+
 
   constructor(
     private route: ActivatedRoute,
@@ -19,10 +24,11 @@ export class EmployeesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getBranches();
+    this.getEmployee();
   }
-  getBranches():void{
-    this.restService.getBranches()
-      .subscribe(branches => this.branches = branches);
-  }
+public getEmployee(): void {
+  this.restService.getEmployee().subscribe(value => {
+    this.employee = value;
+  });
+}
 }

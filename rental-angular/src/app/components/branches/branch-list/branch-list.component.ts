@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Branch, Employee} from "../../service/branch";
+import {Branch, EmployeeB} from "../../../service/branch";
 import {ActivatedRoute} from "@angular/router";
-import {RestService} from "../../service/rest.service";
+import {RestService} from "../../../service/rest.service";
 import {Location} from "@angular/common";
 
 @Component({
@@ -12,7 +12,7 @@ import {Location} from "@angular/common";
 export class BranchListComponent implements OnInit {
   branches: Branch[];
   branch: Branch;
-  employee: Employee;
+  employee: EmployeeB;
 
   constructor(
     private route: ActivatedRoute,

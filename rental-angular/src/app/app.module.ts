@@ -13,7 +13,7 @@ import {FormsModule} from "@angular/forms";
 import {CompanyBranchComponent} from "./components/branches/company-branch.component";
 import { CarAvailableComponent } from './components/car-available/car-available.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
-import { BranchListComponent } from './components/branch-list/branch-list.component';
+import { BranchListComponent } from './components/branches/branch-list/branch-list.component';
 
 
 
