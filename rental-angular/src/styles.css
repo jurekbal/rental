@@ -9,10 +9,12 @@
 .title:hover,
 title:active,
 title:focus{
-  color: #e74c3c;
+  color: #0F1195;
 }
 .title{
-color: dodgerblue;
+color: #0B0D6F;
+text-decoration: none;
+font-size: 25px;
 }
 
 body {
@@ -20,7 +22,7 @@ body {
   font-family: 'Baloo Tamma 2', cursive;
   font-size: 16px;
   margin: 0;
-  background-color: rgb(0, 0, 252);
+  background-color: #4c6085;
 }
 
 app-root {
@@ -243,7 +245,7 @@ input:focus {
 header {
   padding-top: 15px;
   padding-bottom: 10px;
-  background: darkblue;
+  background: #90F4E0;
   color: #ffffff;
   text-align: center;
   border-bottom: 1px solid #cecece;
