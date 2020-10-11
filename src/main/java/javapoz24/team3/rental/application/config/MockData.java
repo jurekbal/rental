@@ -1,6 +1,11 @@
 package javapoz24.team3.rental.application.config;
 
+import javapoz24.team3.rental.application.CarService;
 import javapoz24.team3.rental.application.RentalService;
+import javapoz24.team3.rental.domain.car.Car;
+import javapoz24.team3.rental.domain.car.CarBodyStyle;
+import javapoz24.team3.rental.domain.car.CarDTO;
+import javapoz24.team3.rental.domain.car.CarStatus;
 import javapoz24.team3.rental.domain.emploee.Employee;
 import javapoz24.team3.rental.domain.emploee.Positions;
 import javapoz24.team3.rental.domain.rental.Address;
@@ -10,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +24,8 @@ public class MockData {
 
     @Autowired
     private RentalService rentalService;
+    @Autowired
+    private CarService carService;
 
     @PostConstruct
     public void GenerateMockData() {
@@ -38,9 +46,9 @@ public class MockData {
                 branches
         );
 
-        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>());
-        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>());
-        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>());
+        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>(), new HashSet<>());
+        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>(), new HashSet<>());
+        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>(), new HashSet<>());
 
         Employee e1 = Employee.builder()
                 .firstName("Marian")
@@ -82,10 +90,58 @@ public class MockData {
 
         rentalService.saveBranch(branch3);
 
-        System.out.println("Branches List From Mocked Object:");
-        System.out.println(rental.getCompanyBranches());
-        System.out.println("Rental Info From Mocked Object: (saved to DB)");
-        System.out.println(rental);
+//        CARs data
+//        Car car1 = Car.builder()
+//                .id(null)
+//                .brand("Ford")
+//                .model("Focus")
+//                .regNumber("PO 12345")
+//                .bodyType(CarBodyStyle.HATCHBACK)
+//                .productionYear(2015)
+//                .paintColor("Oceanic blue")
+//                .mileage(125_250L)
+//                .status(CarStatus.AVAILABLE)
+//                .pricing(BigDecimal.valueOf(120L))
+//                .companyBranch(rentalService.getBranchById(1L).get())
+//                .build();
+//
+//        Car car2 = Car.builder()
+//                .id(null)
+//                .brand("Kia")
+//                .model("Rio")
+//                .regNumber("PO 984LT")
+//                .bodyType(CarBodyStyle.HATCHBACK)
+//                .productionYear(2018)
+//                .paintColor("Racing Red")
+//                .mileage(86_750L)
+//                .status(CarStatus.AVAILABLE)
+//                .pricing(BigDecimal.valueOf(105L))
+//                .companyBranch(rentalService.getBranchById(1L).get())
+//                .build();
+//
+//        Car car3 = Car.builder()
+//                .id(null)
+//                .brand("Volkswagen")
+//                .model("Passat")
+//                .regNumber("PO 546KR")
+//                .bodyType(CarBodyStyle.KOMBI)
+//                .productionYear(2016)
+//                .paintColor("Dark Oak")
+//                .mileage(170_128L)
+//                .status(CarStatus.AVAILABLE)
+//                .pricing(BigDecimal.valueOf(190L))
+//                .companyBranch(rentalService.getBranchById(2L).get())
+//                .build();
+
+        // nie działą - problem z LazyInitialization
+//        carService.addOrUpdate(CarDTO.fromCar(car1));
+//        carService.addOrUpdate(CarDTO.fromCar(car2));
+//        carService.addOrUpdate(CarDTO.fromCar(car3));
+
+//        System.out.println("Branches List From Mocked Object:");
+//        System.out.println(rental.getCompanyBranches());
+//        System.out.println("Rental Info From Mocked Object: (saved to DB)");
+//        System.out.println(rental);
 
         //Poniższy kod wywala apkę przy FetchType.LAZY - @Transactional nic nie zmienia
 //        System.out.println("*** Rental Info From DB:");
