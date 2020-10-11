@@ -17,7 +17,7 @@ public class RentalDomainServiceImpl implements RentalDomainService {
     }
 
     @Override
-    public Rental getRentalInfo(Long id) {
+    public Rental getAllRentalInfo(Long id) {
         Optional<Rental> optRental =  rentalRepository.findById(id);
         return optRental.orElse(null);
     }

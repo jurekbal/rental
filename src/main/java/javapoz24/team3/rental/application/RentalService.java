@@ -17,8 +17,12 @@ public class RentalService {
         this.rentalDomainService = rentalDomainService;
     }
 
-    public RentalDTO getRentalInfo(Long id) {
-        return RentalDTO.fromRental(rentalDomainService.getRentalInfo(id));
+    public RentalAllDataDTO getAllRentalInfo(Long id) {
+        return RentalAllDataDTO.fromRental(rentalDomainService.getAllRentalInfo(id));
+    }
+
+    public RentalBasicDataDTO getBasicRentalInfo(Long id) {
+        return RentalBasicDataDTO.fromRental(rentalDomainService.getAllRentalInfo(id));
     }
 
     public void saveRentalInfoData(Rental rental) {
@@ -30,7 +34,7 @@ public class RentalService {
     }
 
     public void addOrUpdateBranch(CompanyBranchDTO branchDTO) {
-        Rental rental = rentalDomainService.getRentalInfo(RentalId.getInstance().getId());
+        Rental rental = rentalDomainService.getAllRentalInfo(RentalId.getInstance().getId());
         CompanyBranch branch = CompanyBranch.fromDTO(branchDTO, rental);
         saveBranch(branch);
     }
@@ -46,7 +50,7 @@ public class RentalService {
     }
 
     public void updateRentalInfoData(RentalInfo rentalInfo) {
-        Rental rental = rentalDomainService.getRentalInfo(RentalId.getInstance().getId());
+        Rental rental = rentalDomainService.getAllRentalInfo(RentalId.getInstance().getId());
         rental.setName(rentalInfo.getName());
         rental.setWebDomain(rentalInfo.getWebDomain());
         rental.setAddress(rentalInfo.getAddress());
@@ -55,4 +59,5 @@ public class RentalService {
 
         rentalDomainService.saveRentalInfoData(rental);
     }
+
 }

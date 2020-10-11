@@ -32,13 +32,16 @@ public class CompanyBranch extends BaseEntity {
     @EqualsAndHashCode.Exclude
     private Set<Car> cars;
 
+    private boolean open;
+
     public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
 
         return new CompanyBranch(
                 companyBranchDTO.getAddress(),
                 rental,
                 new HashSet<>(),
-                new HashSet<>()
+                new HashSet<>(),
+                companyBranchDTO.isOpen()
         );
     }
 

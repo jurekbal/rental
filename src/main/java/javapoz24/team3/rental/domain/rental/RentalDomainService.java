@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface RentalDomainService {
 
-    Rental getRentalInfo(Long id);
+    Rental getAllRentalInfo(Long id);
 
     void saveRentalInfoData(Rental rental);
 
