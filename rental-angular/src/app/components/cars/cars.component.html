@@ -1,1 +1,33 @@
-<p>cars works!</p>
+<section>
+  <div class="block" >
+<table>
+  <thead>
+  <tr>
+    <th colspan="10">Lista samochodów</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr >
+    <td colspan="2">Numer rejestracyjny<br></td>
+    <td>Model</td>
+    <td>Typ nadwozia</td>
+    <td>Rocznik</td>
+    <td>Kolor</td>
+    <td>Przebieg</td>
+    <td>Kwota za dzień</td>
+    <td>Obecnie w odziale nr.</td>
+    <td>Status</td>
+  </tr>
+  <tr *ngFor="let car of cars">
+    <td colspan="2">{{car?.regNumber}}</td>
+    <td>{{car?.model}}</td>
+    <td>{{car?.bodyType}}</td>
+    <td>{{car?.productionYear}}</td>
+    <td>{{car?.paintColor}}</td>
+    <td>{{car?.mileage}}</td>
+    <td>{{car?.pricing}}</td>
+    <td>{{car?.branchId}}</td>
+    <td>{{car?.status}}</td>
+  </tr>
+  </tbody>
+</table>
