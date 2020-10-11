@@ -5,10 +5,11 @@ import lombok.Value;
 
 @Value
 public class CustomerDTO {
-
+    //TODO walidacja
     Long id;
     String firstName;
     String lastName;
+    String email;
     Address address;
 
     public static CustomerDTO fromCustomer(Customer customer) {
@@ -16,6 +17,7 @@ public class CustomerDTO {
                 customer.getId(),
                 customer.getFirstName(),
                 customer.getLastName(),
+                customer.getEmail(),
                 customer.getAddress()
         );
     }
