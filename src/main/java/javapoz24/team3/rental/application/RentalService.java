@@ -1,9 +1,12 @@
 package javapoz24.team3.rental.application;
 
 import javapoz24.team3.rental.application.config.RentalId;
+import javapoz24.team3.rental.domain.car.CarDTO;
+import javapoz24.team3.rental.domain.car.CarDomainService;
 import javapoz24.team3.rental.domain.rental.*;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -12,9 +15,11 @@ import java.util.stream.Collectors;
 public class RentalService {
 
     private final RentalDomainService rentalDomainService;
+    private final CarDomainService carDomainService;
 
-    public RentalService(RentalDomainService rentalDomainService) {
+    public RentalService(RentalDomainService rentalDomainService, CarDomainService carDomainService) {
         this.rentalDomainService = rentalDomainService;
+        this.carDomainService = carDomainService;
     }
 
     public RentalAllDataDTO getAllRentalInfo(Long id) {
@@ -60,4 +65,10 @@ public class RentalService {
         rentalDomainService.saveRentalInfoData(rental);
     }
 
+    public List<CarDTO> getCarsInBranch(Long branchId) {
+        Optional<CompanyBranch> optBranch = getBranchById(branchId);
+        return optBranch.map(companyBranch -> carDomainService.getCarsInBranch(companyBranch).stream()
+                .map(CarDTO::fromCar)
+                .collect(Collectors.toList())).orElse(Collections.emptyList());
+    }
 }
