@@ -32,7 +32,7 @@ public class CompanyBranch extends BaseEntity {
     @EqualsAndHashCode.Exclude
     private Set<Car> cars;
 
-    private boolean open;
+    private boolean closed;
 
     public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
 
@@ -41,7 +41,7 @@ public class CompanyBranch extends BaseEntity {
                 rental,
                 new HashSet<>(),
                 new HashSet<>(),
-                companyBranchDTO.isOpen()
+                companyBranchDTO.isClosed()
         );
     }
 

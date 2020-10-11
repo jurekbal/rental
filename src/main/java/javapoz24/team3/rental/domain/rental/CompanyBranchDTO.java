@@ -16,7 +16,7 @@ public class CompanyBranchDTO {
     @Valid
     Address address;
     Set<EmployeeDTO> employees;
-    boolean open;
+    boolean closed;
 
     // TODO lista dostępnych aut
 
@@ -26,7 +26,7 @@ public class CompanyBranchDTO {
                     companyBranch.getId(),
                     companyBranch.getAddress(),
                     EmployeeDTO.fromEmployeesSet(companyBranch.getEmployees()),
-                    companyBranch.isOpen()
+                    companyBranch.isClosed()
             );
         }
         return null;

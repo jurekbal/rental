@@ -41,4 +41,9 @@ public class RentalDomainServiceImpl implements RentalDomainService {
     public Optional<CompanyBranch> getBranchById(Long id) {
         return branchRepository.findById(id);
     }
+
+    @Override
+    public Long getOpenBranchesCount() {
+        return branchRepository.countAllByClosedFalse();
+    }
 }
