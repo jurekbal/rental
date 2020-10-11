@@ -16,16 +16,18 @@ public class CompanyBranchDTO {
     @Valid
     Address address;
     Set<EmployeeDTO> employees;
+    boolean closed;
 
     // TODO lista dostępnych aut
 
     public static CompanyBranchDTO fromCompanyBranch(CompanyBranch companyBranch) {
         if (companyBranch != null) {
             return new CompanyBranchDTO(
-                companyBranch.getId(),
-                companyBranch.getAddress(),
-                EmployeeDTO.fromEmployeesSet(companyBranch.getEmployees())
-        );
+                    companyBranch.getId(),
+                    companyBranch.getAddress(),
+                    EmployeeDTO.fromEmployeesSet(companyBranch.getEmployees()),
+                    companyBranch.isClosed()
+            );
         }
         return null;
     }

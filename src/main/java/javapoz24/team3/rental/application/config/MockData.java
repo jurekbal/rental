@@ -46,9 +46,9 @@ public class MockData {
                 branches
         );
 
-        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>(), new HashSet<>());
-        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>(), new HashSet<>());
-        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>(), new HashSet<>());
+        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>(), new HashSet<>(), false);
+        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>(), new HashSet<>(), false);
+        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>(), new HashSet<>(), true);
 
         Employee e1 = Employee.builder()
                 .firstName("Marian")
@@ -102,7 +102,6 @@ public class MockData {
                 .mileage(125_250L)
                 .status(CarStatus.AVAILABLE)
                 .pricing(BigDecimal.valueOf(120L))
-//                .companyBranch(rentalService.getBranchById(1L).get())
                 .companyBranch(branch1)
                 .build();
 
@@ -144,6 +143,7 @@ public class MockData {
 //        System.out.println(rental);
 
         //Poniższy kod wywala apkę przy FetchType.LAZY - @Transactional nic nie zmienia
+        // NAPRAWIONE - Lombok Data robi problemy (dokładnie lombokowy ToString), ale teraz nic nie wyświetli...
 //        System.out.println("*** Rental Info From DB:");
 //        Rental rentalFromDB = rentalDomainService.getRentalInfo();
 //        System.out.println(rentalFromDB);

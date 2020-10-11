@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface RentalDomainService {
 
-    Rental getRentalInfo(Long id);
+    Rental getAllRentalInfo(Long id);
 
     void saveRentalInfoData(Rental rental);
 
@@ -14,4 +14,6 @@ public interface RentalDomainService {
     List<CompanyBranch> getAllBranches();
 
     Optional<CompanyBranch> getBranchById(Long id);
+
+    Long getOpenBranchesCount();
 }

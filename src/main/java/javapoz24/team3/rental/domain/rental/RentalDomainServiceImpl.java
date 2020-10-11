@@ -17,7 +17,7 @@ public class RentalDomainServiceImpl implements RentalDomainService {
     }
 
     @Override
-    public Rental getRentalInfo(Long id) {
+    public Rental getAllRentalInfo(Long id) {
         Optional<Rental> optRental =  rentalRepository.findById(id);
         return optRental.orElse(null);
     }
@@ -40,5 +40,10 @@ public class RentalDomainServiceImpl implements RentalDomainService {
     @Override
     public Optional<CompanyBranch> getBranchById(Long id) {
         return branchRepository.findById(id);
+    }
+
+    @Override
+    public Long getOpenBranchesCount() {
+        return branchRepository.countAllByClosedFalse();
     }
 }
