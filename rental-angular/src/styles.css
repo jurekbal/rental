@@ -6,7 +6,14 @@
 * {
   box-sizing: border-box;
 }
-
+.title:hover,
+title:active,
+title:focus{
+  color: #e74c3c;
+}
+.title{
+color: dodgerblue;
+}
 
 body {
   height: 100vh;
@@ -140,7 +147,19 @@ h4{
   text-transform: uppercase;
 
 }
-
+table{
+  text-align: center;
+}
+h5{
+  font-size: 25px;
+  margin: 5px;
+;
+}
+h6{
+  font-size: 20px;
+  padding: 1px;
+  margin: 0;
+}
 
 .button {
 

@@ -41,11 +41,17 @@
         <td>         <label >Oddziały: </label>
 
         </td>
-        <td> <a></a> <p>Tu będzie się wyświetlało ile jest dostępnych odziałów z odnośnikiem do listy oddziałów</p></td>
+        <td > <a></a> <p>Tu będzie się wyświetlało ile jest dostępnych odziałów z odnośnikiem do listy oddziałów</p>
+          <button (click)="showBranchList = !showBranchList" class="button button-green"><i class="icon-wrench"></i></button></td>
       </tr>
       </tbody>
     </table>
   </div>
+<div *ngIf="showBranchList"><app-branch-list><p>  Podaj Addres</p></app-branch-list>
+
+
+</div>
 
 </section>
+
 

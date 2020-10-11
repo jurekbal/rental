@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from "../../service/rest.service";
 import {ActivatedRoute} from "@angular/router";
-import {Branch} from "../../service/branch";
+import {Branch, EmployeeB} from "../../service/branch";
 import {Location} from "@angular/common";
 
 @Component({
@@ -12,6 +12,9 @@ import {Location} from "@angular/common";
 export class CompanyBranchComponent implements OnInit {
   branches: Branch[];
   branch: Branch;
+  employeeB: EmployeeB;
+
+
 
   constructor(
     private route: ActivatedRoute,
@@ -43,5 +46,6 @@ saveBranch(): void{
     this.restService.updateBranch(this.branch)
       .subscribe(()=> this.goBack());
 }
+
 
 }

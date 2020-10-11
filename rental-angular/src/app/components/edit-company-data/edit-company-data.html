@@ -35,14 +35,30 @@
           </td>
         </tr>
         <tr>
-          <td>      <label for="company_address">Adres: </label>
+          <td>      <label for="company_address_street">Ulica: </label>
           </td>
-          <td><div class="tableDiv"><input type="text" id="company_address" value="NAPRAW MNIE!" ></div></td>
+          <td><div class="tableDiv"><input type="text" id="company_address_street" [(ngModel)]="companyData.address.streetWithNumber" ></div></td>
           <td>
-            <button class="button button-green"><i class="icon-wrench" ></i></button>
+            <button (click)="save()" class="button button-green"><i class="icon-wrench" ></i></button>
             <button  class="button button-red"><i class="icon-cancel-circled" ></i></button>
           </td>
         </tr>
+        <td>      <label for="company_address_city">Miasto: </label>
+        </td>
+        <td><div class="tableDiv"><input type="text" id="company_address_city" [(ngModel)]="companyData.address.city" ></div></td>
+        <td>
+          <button (click)="save()" class="button button-green"><i class="icon-wrench" ></i></button>
+          <button  class="button button-red"><i class="icon-cancel-circled" ></i></button>
+        </td>
+       <tr>
+         <td>      <label for="company_address_code">Kod pocztowy: </label>
+         </td>
+         <td><div class="tableDiv"><input type="text" id="company_address_code" [(ngModel)]="companyData.address.postalCode" ></div></td>
+         <td>
+           <button (click)="save()" class="button button-green"><i class="icon-wrench" ></i></button>
+           <button  class="button button-red"><i class="icon-cancel-circled" ></i></button>
+         </td>
+       </tr>
         <tr>
           <td>      <label for="owner">Właściciel: </label>
           </td>
