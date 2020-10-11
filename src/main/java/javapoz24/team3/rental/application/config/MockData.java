@@ -91,52 +91,52 @@ public class MockData {
         rentalService.saveBranch(branch3);
 
 //        CARs data
-//        Car car1 = Car.builder()
-//                .id(null)
-//                .brand("Ford")
-//                .model("Focus")
-//                .regNumber("PO 12345")
-//                .bodyType(CarBodyStyle.HATCHBACK)
-//                .productionYear(2015)
-//                .paintColor("Oceanic blue")
-//                .mileage(125_250L)
-//                .status(CarStatus.AVAILABLE)
-//                .pricing(BigDecimal.valueOf(120L))
+        Car car1 = Car.builder()
+                .id(null)
+                .brand("Ford")
+                .model("Focus")
+                .regNumber("PO 12345")
+                .bodyType(CarBodyStyle.HATCHBACK)
+                .productionYear(2015)
+                .paintColor("Oceanic blue")
+                .mileage(125_250L)
+                .status(CarStatus.AVAILABLE)
+                .pricing(BigDecimal.valueOf(120L))
 //                .companyBranch(rentalService.getBranchById(1L).get())
-//                .build();
-//
-//        Car car2 = Car.builder()
-//                .id(null)
-//                .brand("Kia")
-//                .model("Rio")
-//                .regNumber("PO 984LT")
-//                .bodyType(CarBodyStyle.HATCHBACK)
-//                .productionYear(2018)
-//                .paintColor("Racing Red")
-//                .mileage(86_750L)
-//                .status(CarStatus.AVAILABLE)
-//                .pricing(BigDecimal.valueOf(105L))
-//                .companyBranch(rentalService.getBranchById(1L).get())
-//                .build();
-//
-//        Car car3 = Car.builder()
-//                .id(null)
-//                .brand("Volkswagen")
-//                .model("Passat")
-//                .regNumber("PO 546KR")
-//                .bodyType(CarBodyStyle.KOMBI)
-//                .productionYear(2016)
-//                .paintColor("Dark Oak")
-//                .mileage(170_128L)
-//                .status(CarStatus.AVAILABLE)
-//                .pricing(BigDecimal.valueOf(190L))
-//                .companyBranch(rentalService.getBranchById(2L).get())
-//                .build();
+                .companyBranch(branch1)
+                .build();
 
-        // nie działą - problem z LazyInitialization
-//        carService.addOrUpdate(CarDTO.fromCar(car1));
-//        carService.addOrUpdate(CarDTO.fromCar(car2));
-//        carService.addOrUpdate(CarDTO.fromCar(car3));
+        Car car2 = Car.builder()
+                .id(null)
+                .brand("Kia")
+                .model("Rio")
+                .regNumber("PO 984LT")
+                .bodyType(CarBodyStyle.HATCHBACK)
+                .productionYear(2018)
+                .paintColor("Racing Red")
+                .mileage(86_750L)
+                .status(CarStatus.AVAILABLE)
+                .pricing(BigDecimal.valueOf(105L))
+                .companyBranch(branch1)
+                .build();
+
+        Car car3 = Car.builder()
+                .id(null)
+                .brand("Volkswagen")
+                .model("Passat")
+                .regNumber("PO 546KR")
+                .bodyType(CarBodyStyle.KOMBI)
+                .productionYear(2016)
+                .paintColor("Dark Oak")
+                .mileage(170_128L)
+                .status(CarStatus.AVAILABLE)
+                .pricing(BigDecimal.valueOf(190L))
+                .companyBranch(branch2)
+                .build();
+
+        carService.addOrUpdate(CarDTO.fromCar(car1));
+        carService.addOrUpdate(CarDTO.fromCar(car2));
+        carService.addOrUpdate(CarDTO.fromCar(car3));
 
 //        System.out.println("Branches List From Mocked Object:");
 //        System.out.println(rental.getCompanyBranches());
