@@ -45,6 +45,7 @@ export class BranchListComponent implements OnInit {
     if (!streetWithNumber || !city || !postalCode ) {
       return;
     }
+    this.address = {streetWithNumber, city, postalCode }
     this.restService.addBranch({ address: this.address } as Branch)
       .subscribe(branch => {
         this.branches.push(branch);

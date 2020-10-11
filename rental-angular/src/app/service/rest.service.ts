@@ -40,7 +40,7 @@ public getBranch(id: number): Observable<Branch>{
   }
 
   public addBranch(branch: Branch): Observable<Branch> {
-    return this.httpClient.post<Branch>(this.BASE_URL + '/branches', branch, this.httpOptnions);
+    return this.httpClient.put<Branch>(this.BASE_URL + '/branches', branch, this.httpOptnions);
 
   }
 
