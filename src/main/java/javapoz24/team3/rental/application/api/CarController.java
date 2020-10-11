@@ -34,7 +34,7 @@ public class CarController {
     }
 
     @PutMapping
-    public void adOrUpdate(CarDTO carDTO) {
+    public void addOrUpdate(@RequestBody CarDTO carDTO) {
         carService.addOrUpdate(carDTO);
     }
 }

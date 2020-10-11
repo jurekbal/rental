@@ -31,6 +31,6 @@ public class CarDomainServiceImpl implements CarDomainService {
 
     @Override
     public Car saveCar(Car car) {
-        return null;
+        return carRepository.save(car);
     }
 }
