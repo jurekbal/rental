@@ -24,6 +24,7 @@ body {
   margin: 5px;
   background-color: #CBD3E1;
   padding: 15px;
+  background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1800&h=942&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2020%2F06%2F04%2Fspearfish-canyon-scenic-byway-6-MIDWESTRDTRIPS0620.jpg");
 }
 
 app-root {
@@ -42,6 +43,7 @@ app-root {
   background-color: rgb(159, 207, 240);
   border-radius: 20px;
   flex-wrap: wrap;
+  margin: 30px;
 }
 
 .content{
@@ -88,7 +90,6 @@ app-root {
   padding-right: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: whitesmoke;
   /* flex-direction: column; */
   margin: 15px;
   text-align: center;
@@ -238,13 +239,11 @@ input:focus {
 
 
 header {
-  padding-top: 15px;
-  padding-bottom: 10px;
   background: #90F4E0;
   color: #ffffff;
   text-align: center;
-  border-bottom: 1px solid #cecece;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
   border-radius: 20px;
 }
 
@@ -260,6 +259,8 @@ main {
 footer {
   background: #0B0D6F;
   color: #CBD3E1;
+  margin-top: 20px;
+  margin-bottom: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
   text-align: center;
