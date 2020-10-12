@@ -21,8 +21,9 @@ body {
   height: 100vh;
   font-family: 'Baloo Tamma 2', cursive;
   font-size: 16px;
-  margin: 0;
-  background-color: #4c6085;
+  margin: 5px;
+  background-color: #CBD3E1;
+  padding: 15px;
 }
 
 app-root {
@@ -31,52 +32,46 @@ app-root {
   height: 100%;
 }
 
-
 .container {
   margin: 0 auto;
-
   width: 100%;
-
 }
-.nav{
 
+.nav{
   display: flex;
   background-color: rgb(159, 207, 240);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-
+  border-radius: 20px;
   flex-wrap: wrap;
 }
+
 .content{
 
   width: 100%;
   background-color:rgb(159, 207, 240);
   display: flex;
   flex-flow: wrap;
-justify-content: center;
-
-
+  justify-content: center;
+  border-radius: 20px;
+  padding: 5px;
+  margin-block-start: 20px;
+  margin-block-end: 20px;
 
 
 }
 .menublock{
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   background-color: whitesmoke;
-  margin: 10px;
+  margin: 1px;
   flex: 200px;
   flex-direction: column;
   border-radius: 20px;
   flex:1;
   text-align: center;
   font-weight: 800;
-  font-size: 1.3em;
-
-
-
-
+  font-size: 20px;
 
 }
 .block{
@@ -93,10 +88,10 @@ justify-content: center;
 
 }
 .editblock{
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: whitesmoke;
   /* flex-direction: column; */
   margin: 15px;
@@ -105,8 +100,10 @@ justify-content: center;
   max-width: 620px;
   min-width: 250px;
   text-align: left;
-  font-size: 25px;
+  font-size: 20px;
   flex: auto;
+  border-radius: 20px;
+  color: #0B0D6F;
 }
 .table100-13{
   width: 100%;
@@ -114,28 +111,29 @@ justify-content: center;
 }
 
 .a-menu {
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: whitesmoke;
-  margin: 20px;
-  flex: 200px;
+  margin: 10px;
+  flex: 300px;
   border-radius: 20px;
   text-align: center;
-  color: black;
+  color: #0B0D6F;
+  text-decoration: none;
 }
 
 .a-menu:hover {
   display: block;
-  background-color: rgb(93, 161, 238);
-  color: lightskyblue;
+  background-color: #0F1195;
+  color: #0F1195;
 }
 a{
   color:  darkblue;
 }
 a:hover{
-  color: blue;
+  color: #0F1195;
 }
 h2 {
   text-transform: uppercase;
@@ -147,10 +145,12 @@ h4{
   text-align: center;
   padding-bottom: 0px;;
   text-transform: uppercase;
+  color: #0B0D6F;
 
 }
 table{
   text-align: center;
+  color: ##0B0D6F;
 }
 h5{
   font-size: 25px;
@@ -250,6 +250,7 @@ header {
   text-align: center;
   border-bottom: 1px solid #cecece;
   margin-bottom: 30px;
+  border-radius: 20px;
 }
 
 
@@ -262,11 +263,14 @@ main {
 
 
 footer {
-  background: #262930;
+  background: #0B0D6F;
   color: #bab9b9;
   padding-top: 25px;
   padding-bottom: 25px;
   text-align: center;
+  border-radius: 20px;
+  margin-block-start: 20px;
+  margin-block-end: 20px;
 }
 
 
