@@ -1,5 +1,6 @@
 package javapoz24.team3.rental.domain.car;
 
+import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,5 +33,10 @@ public class CarDomainServiceImpl implements CarDomainService {
     @Override
     public Car saveCar(Car car) {
         return carRepository.save(car);
+    }
+
+    @Override
+    public List<Car> getCarsInBranch(CompanyBranch branch) {
+        return carRepository.findCarByCompanyBranch(branch);
     }
 }

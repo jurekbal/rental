@@ -2,6 +2,7 @@ package javapoz24.team3.rental.application.api;
 
 import javapoz24.team3.rental.application.RentalService;
 import javapoz24.team3.rental.application.config.RentalId;
+import javapoz24.team3.rental.domain.car.CarDTO;
 import javapoz24.team3.rental.domain.rental.CompanyBranchDTO;
 import javapoz24.team3.rental.domain.rental.RentalAllDataDTO;
 import javapoz24.team3.rental.domain.rental.RentalBasicDataDTO;
@@ -51,6 +52,11 @@ public class RentalController {
     @PutMapping("/branches")
     public void putBranchOffice(@RequestBody @NotNull @Valid CompanyBranchDTO companyBranchDTO) {
         rentalService.addOrUpdateBranch(companyBranchDTO);
+    }
+
+    @GetMapping("/branches/{id}/cars")
+    public List<CarDTO> getCarsInBranch(@PathVariable Long id) {
+        return rentalService.getCarsInBranch(id);
     }
 
 }

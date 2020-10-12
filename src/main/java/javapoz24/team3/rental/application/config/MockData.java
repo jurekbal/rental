@@ -1,11 +1,14 @@
 package javapoz24.team3.rental.application.config;
 
 import javapoz24.team3.rental.application.CarService;
+import javapoz24.team3.rental.application.CustomerService;
 import javapoz24.team3.rental.application.RentalService;
 import javapoz24.team3.rental.domain.car.Car;
 import javapoz24.team3.rental.domain.car.CarBodyStyle;
 import javapoz24.team3.rental.domain.car.CarDTO;
 import javapoz24.team3.rental.domain.car.CarStatus;
+import javapoz24.team3.rental.domain.customer.Customer;
+import javapoz24.team3.rental.domain.customer.CustomerDTO;
 import javapoz24.team3.rental.domain.emploee.Employee;
 import javapoz24.team3.rental.domain.emploee.Positions;
 import javapoz24.team3.rental.domain.rental.Address;
@@ -26,6 +29,8 @@ public class MockData {
     private RentalService rentalService;
     @Autowired
     private CarService carService;
+    @Autowired
+    private CustomerService customerService;
 
     @PostConstruct
     public void GenerateMockData() {
@@ -33,6 +38,9 @@ public class MockData {
         Address addressOfBranch1 = new Address("Dąbrowskiego 345", "Poznań", "61-234");
         Address addressOfBranch2 = new Address("Trzebnicka 12", "Wrocław", "50-015");
         Address addressOfBranch3 = new Address("Domaniewska 44", "Warszawa", "00-122");
+        Address customerAddress1 = new Address("Malinowa 1", "Poznań", "61-234");
+        Address customerAddress2 = new Address("Selerowa 12", "Wrocław", "50-015");
+        Address customerAddress3 = new Address("Brzozowa 78", "Warszawa", "00-122");
 
         Set<CompanyBranch> branches = new HashSet<>();
 
@@ -136,6 +144,34 @@ public class MockData {
         carService.addOrUpdate(CarDTO.fromCar(car1));
         carService.addOrUpdate(CarDTO.fromCar(car2));
         carService.addOrUpdate(CarDTO.fromCar(car3));
+
+        Customer cust1 = Customer.builder()
+                .id(null)
+                .firstName("Grzegorz")
+                .lastName("Brzęczyszczykiewicz")
+                .email("gb@wp.pl")
+                .address(customerAddress1)
+                .build();
+
+        Customer cust2 = Customer.builder()
+                .id(null)
+                .firstName("Rafał")
+                .lastName("Anielewicz")
+                .email("ra@op.pl")
+                .address(customerAddress2)
+                .build();
+
+        Customer cust3 = Customer.builder()
+                .id(null)
+                .firstName("Paweł")
+                .lastName("Jędzejewski")
+                .email("pj@gmail.com")
+                .address(customerAddress3)
+                .build();
+
+        customerService.addOrUpdate(CustomerDTO.fromCustomer(cust1));
+        customerService.addOrUpdate(CustomerDTO.fromCustomer(cust2));
+        customerService.addOrUpdate(CustomerDTO.fromCustomer(cust3));
 
 //        System.out.println("Branches List From Mocked Object:");
 //        System.out.println(rental.getCompanyBranches());
