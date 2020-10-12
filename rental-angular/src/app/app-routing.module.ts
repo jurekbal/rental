@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from "@angular/core";
+
 import { RouterModule, Routes } from '@angular/router';
 import {EditComponent} from './components/edit-company-data/edit-company-data';
 import {NotFoundComponent} from './components/not-found/not-found.component';
