@@ -8,6 +8,7 @@ import {Branch, EmployeeB} from "./branch";
 import {Employee} from "./employee";
 import {Car} from "./car";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -66,14 +67,14 @@ public getBranchCars(id: number): Observable<Car[]>{
 
     return this.httpClient.get<Employee[]>(this.BASE_URL + '/employees');
   }
-  public  getCar(): Observable<Car>{
-    return this.httpClient.get<Car>(this.BASE_URL + '/cars');
-  }
-  getCars(): Observable<Car[]> {
+  public getCars (): Observable <Car[]> {
     return this.httpClient.get<Car[]>(this.BASE_URL + '/cars');
   }
 
-
+  // public getBranchCars(id: number): Observable<Car[]>{
+  //   const url = `${this.BASE_URL + '/branches'}/${id}` + '/cars';
+  //   return this.httpClient.get<Car[]>(url);
+  // }
   // public getEmployee(id: number): Observable<Employee>{
   //   const url = `${this.BASE_URL + '/branches'}/${id}`;
   //   return this.httpClient.get<Employee>(url);

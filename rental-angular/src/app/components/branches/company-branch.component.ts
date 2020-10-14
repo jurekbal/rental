@@ -66,4 +66,21 @@ saveBranch(): void{
       .subscribe(cars => this.cars = cars);
   }
 
+
+  // getCar(id: number):void {
+  //   this.restService.getBranchCars(id)
+  //     .subscribe(cars => {
+  //       this.cars = cars;
+  //     });
+  // }
+  // getCarsId():void{
+  //   this.restService.getBranchCars(1)  //todo przycisk do wczytywania danych
+  //     .subscribe(cars => this.cars = cars);
+  // }
+
+  // getCarsId(id):void{
+  //   this.restService.getBranchCars(id)  //todo przycisk do wczytywania danych
+  //     .subscribe(cars => this.cars = cars);
+  // }
+
 }
