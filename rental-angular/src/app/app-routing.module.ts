@@ -4,7 +4,7 @@ import {EditComponent} from './components/edit-company-data/edit-company-data';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {HomeComponent} from './components/home/home.component';
 import {CarsComponent} from './components/cars/cars.component';
-import {ClientsComponent} from './components/clients/clients.component';
+import {CustomerComponent} from './components/customer/customer.component';
 import {BookingComponent} from './components/booking/booking.component';
 import {CompanyBranchComponent} from './components/branches/company-branch.component';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'edit', component: EditComponent },
   { path: 'home', component: HomeComponent },
   { path: 'cars', component: CarsComponent },
-  { path: 'clients', component: ClientsComponent },
+  { path: 'customer', component: CustomerComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'branches', component: CompanyBranchComponent },
 

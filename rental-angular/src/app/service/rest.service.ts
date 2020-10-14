@@ -6,6 +6,7 @@ import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Branch, EmployeeB} from "./branch";
 import {Employee} from "./employee";
+import {Customer} from "./customer";
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,12 @@ public getBranch(id: number): Observable<Branch>{
 
     return this.httpClient.get<Employee[]>(this.BASE_URL + '/employees');
   }
+
+  public getCustomers(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.BASE_URL + '/customers');
+  }
+
+
   // public getEmployee(id: number): Observable<Employee>{
   //   const url = `${this.BASE_URL + '/branches'}/${id}`;
   //   return this.httpClient.get<Employee>(url);
