@@ -1,25 +1,32 @@
 package javapoz24.team3.rental.application.config;
 
+import javapoz24.team3.rental.application.BookingService;
 import javapoz24.team3.rental.application.CarService;
 import javapoz24.team3.rental.application.CustomerService;
 import javapoz24.team3.rental.application.RentalService;
-import javapoz24.team3.rental.domain.car.Car;
-import javapoz24.team3.rental.domain.car.CarBodyStyle;
-import javapoz24.team3.rental.domain.car.CarDTO;
-import javapoz24.team3.rental.domain.car.CarStatus;
+import javapoz24.team3.rental.domain.booking.Booking;
+import javapoz24.team3.rental.domain.booking.BookingDTO;
+import javapoz24.team3.rental.domain.car.*;
 import javapoz24.team3.rental.domain.customer.Customer;
 import javapoz24.team3.rental.domain.customer.CustomerDTO;
+import javapoz24.team3.rental.domain.customer.CustomerDomainService;
 import javapoz24.team3.rental.domain.emploee.Employee;
+import javapoz24.team3.rental.domain.emploee.EmployeeDomainService;
 import javapoz24.team3.rental.domain.emploee.Positions;
 import javapoz24.team3.rental.domain.rental.Address;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import javapoz24.team3.rental.domain.rental.Rental;
+import javapoz24.team3.rental.domain.rental.RentalDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -28,9 +35,19 @@ public class MockData {
     @Autowired
     private RentalService rentalService;
     @Autowired
+    private RentalDomainService rentalDomainService;
+    @Autowired
     private CarService carService;
     @Autowired
+    private CarDomainService carDomainService;
+    @Autowired
     private CustomerService customerService;
+    @Autowired
+    private CustomerDomainService customerDomainService;
+    @Autowired
+    private BookingService bookingService;
+    @Autowired
+    private EmployeeDomainService employeeDomainService;
 
     @PostConstruct
     public void GenerateMockData() {
@@ -54,9 +71,12 @@ public class MockData {
                 branches
         );
 
-        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>(), new HashSet<>(), false);
-        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>(), new HashSet<>(), false);
-        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>(), new HashSet<>(), true);
+        CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>(), new HashSet<>(),
+                false, new ArrayList<>(), new ArrayList<>());
+        CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>(), new HashSet<>(),
+                false, new ArrayList<>(), new ArrayList<>());
+        CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>(), new HashSet<>(),
+                true, new ArrayList<>(), new ArrayList<>());
 
         Employee e1 = Employee.builder()
                 .firstName("Marian")
@@ -172,6 +192,27 @@ public class MockData {
         customerService.addOrUpdate(CustomerDTO.fromCustomer(cust1));
         customerService.addOrUpdate(CustomerDTO.fromCustomer(cust2));
         customerService.addOrUpdate(CustomerDTO.fromCustomer(cust3));
+
+        /*
+        Booking
+        */
+        List<Customer> customers = customerDomainService.getAll();
+        List<Employee> employees = employeeDomainService.getAllEmployees();
+        List<Car> cars = carDomainService.getAllCars();
+        List<CompanyBranch> companyBranches = rentalDomainService.getAllBranches();
+
+        Booking booking1 = Booking.builder()
+                .customer(customers.get(0))
+                .employee(employees.get(0))
+                .car(cars.get(0))
+                .rentalDay(LocalDate.of(2020, 11, 6))
+                .returnDay(LocalDate.of(2020, 11, 9))
+                .rentBranch(companyBranches.get(0))
+                .returnBranch(companyBranches.get(1))
+                .build();
+
+        bookingService.addOrUpdate(BookingDTO.fromBooking(booking1));
+
 
 //        System.out.println("Branches List From Mocked Object:");
 //        System.out.println(rental.getCompanyBranches());

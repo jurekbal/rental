@@ -1,12 +1,15 @@
 package javapoz24.team3.rental.domain.rental;
 
 import javapoz24.team3.rental.domain.base.BaseEntity;
+import javapoz24.team3.rental.domain.booking.Booking;
 import javapoz24.team3.rental.domain.car.Car;
 import javapoz24.team3.rental.domain.emploee.Employee;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -34,6 +37,11 @@ public class CompanyBranch extends BaseEntity {
 
     private boolean closed;
 
+    @OneToMany(mappedBy = "rentBranch")
+    private List<Booking> rentBookings;
+    @OneToMany(mappedBy = "returnBranch")
+    private List<Booking> returnBookings;
+
     public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
 
         return new CompanyBranch(
@@ -41,7 +49,9 @@ public class CompanyBranch extends BaseEntity {
                 rental,
                 new HashSet<>(),
                 new HashSet<>(),
-                companyBranchDTO.isClosed()
+                companyBranchDTO.isClosed(),
+                new ArrayList<>(),
+                new ArrayList<>()
         );
     }
 
