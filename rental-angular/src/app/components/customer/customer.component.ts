@@ -10,7 +10,7 @@ import {Customer} from "../../service/customer";
 export class CustomerComponent implements OnInit {
 customers: Customer[];
 
-  constructor( private restService: RestService,) { }
+  constructor( private restService: RestService) { }
 
   ngOnInit(): void {
     this.getCustomers()

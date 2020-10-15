@@ -4,31 +4,77 @@
     <table>
       <thead>
       <tr>
-        <th colspan="9">Lista wypożyczeń<br></th>
+        <th colspan="9"><h5>Lista wypożyczeń</h5></th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td>Numer</td>
-        <td>Utworzono w dniu</td>
-        <td>Wypożyczający<br></td>
-        <td>Przez pracownika<br></td>
-        <td>Samochód</td>
-        <td>Dzień wypożyczenia</td>
-        <td>Dzień zwrotu</td>
-        <td>Z oddziału</td>
-        <td>Do oddziału</td>
+        <td><h6>Numer</h6></td>
+        <td><h6>Utworzono w dniu</h6></td>
+        <td><h6>Wypożyczający</h6></td>
+        <td><h6>Przez pracownika</h6></td>
+        <td><h6>Samochód</h6></td>
+        <td><h6>Dzień wypożyczenia</h6></td>
+        <td><h6>Dzień zwrotu</h6></td>
+        <td><h6>Z oddziału</h6></td>
+        <td><h6>Do oddziału</h6></td>
       </tr>
       <tr *ngFor="let booking of booking">
-        <td>{{booking?.id}}</td>
-        <td>{{booking?.createdTimestamp}}</td>
-        <td>{{booking?.customerId}}</td>
-        <td>{{booking?.employeeId}}</td>
-        <td>{{booking?.carId}}</td>
-        <td>{{booking?.rentalDay}}</td>
-        <td>{{booking?.returnDay}}</td>
-        <td>{{booking?.rentBranchId}}</td>
-        <td>{{booking?.returnBranchId}}</td>
+        <td><p>{{booking?.id}}</p></td>
+        <td><p>{{booking?.createdTimestamp}}<p></td>
+        <td><p>{{booking?.customerId}}</p></td>
+        <td><p>{{booking?.employeeId}}</p></td>
+        <td><p>{{booking?.carId}}</p></td>
+        <td><p>{{booking?.rentalDay}}</p></td>
+        <td><p>{{booking?.returnDay}}</p></td>
+        <td><p>{{booking?.rentBranchId}}</p></td>
+        <td><p>{{booking?.returnBranchId}}</p></td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+  <div class="block">
+    <table>
+
+      <thead>
+      <tr>
+        <th colspan="2"><h5>Nowe wypożyczenie</h5></th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><h6>Wypożyczone przez:</h6></td>
+        <td>
+          <select>
+            <option *ngFor="let customer of customers" [ngValue]="customer">{{ customer?.firstName }} {{customer?.lastName}}</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td><h6>Dodane przez:</h6></td>
+        <td> <select>
+          <option *ngFor="let employee of employees" [ngValue]="employee">{{ employee?.firstName }} {{employee?.lastName}}</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><h6>Wypożyczono samochód:</h6></td>
+        <td><select>
+          <option *ngFor="let car of cars" [ngValue]="car">{{ car?.regNumber }},  {{car?.brand}}  {{car?.model}}</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><h6>Wypożyczono w dniu:</h6></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><h6>Oddano w dniu:</h6></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button class="button-green"><h6>Zapisz</h6></button></td>
       </tr>
       </tbody>
     </table>
