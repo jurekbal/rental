@@ -2,10 +2,12 @@ package javapoz24.team3.rental.domain.emploee;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javapoz24.team3.rental.domain.base.BasePerson;
+import javapoz24.team3.rental.domain.booking.Booking;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,6 +24,9 @@ public class Employee extends BasePerson {
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
     private CompanyBranch companyBranch;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Booking> bookings;
 
     @Builder
     public Employee(Long id, String firstName, String lastName, Positions position, CompanyBranch companyBranch) {
