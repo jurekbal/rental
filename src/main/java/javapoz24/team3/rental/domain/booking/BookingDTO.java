@@ -2,6 +2,7 @@ package javapoz24.team3.rental.domain.booking;
 
 import lombok.Value;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -18,8 +19,8 @@ public class BookingDTO {
     LocalDate returnDay;
     Long rentBranchId;
     Long returnBranchId;
+    BigDecimal totalCost;
 
-//    BigDecimal totalCost;
 
     public static BookingDTO fromBooking(Booking booking) {
         return new BookingDTO(
@@ -31,8 +32,8 @@ public class BookingDTO {
                 booking.getRentalDay(),
                 booking.getReturnDay(),
                 booking.getRentBranch().getId(),
-                booking.getReturnBranch().getId()
-//                booking.getTotalCost()
+                booking.getReturnBranch().getId(),
+                booking.getTotalCost()
         );
     }
 }
