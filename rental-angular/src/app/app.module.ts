@@ -11,7 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from "./components/home/home.component";
 import {FormsModule} from "@angular/forms";
 import {CompanyBranchComponent} from "./components/branches/company-branch.component";
-import { CarAvailableComponent } from './components/car-available/car-available.component';
+import { CarAvailableComponent } from './components/cars/car-available/car-available.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { BranchListComponent } from './components/branches/branch-list/branch-list.component';
 

@@ -6,7 +6,12 @@ import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Branch, EmployeeB} from "./branch";
 import {Employee} from "./employee";
+
+import {Car} from "./car";
+
+
 import {Customer} from "./customer";
+
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +50,7 @@ public getBranch(id: number): Observable<Branch>{
 
   }
 
-  public delateBranch(branch: Branch): Observable<Branch> {
+  public deleteBranch(branch: Branch): Observable<Branch> {
     const url = `${this.BASE_URL + '/branches'}/${branch.id}`;
     return this.httpClient.delete<Branch>(url, this.httpOptnions);
   }
@@ -54,6 +59,10 @@ public getBranch(id: number): Observable<Branch>{
     const url = `${this.BASE_URL + '/branches'}/${branch.id}`;
     return this.httpClient.put<Branch>(url, branch, this.httpOptnions)
   }
+public getBranchCars(id: number): Observable<Car[]>{
+  const url = `${this.BASE_URL + '/branches'}/${id}` + '/cars';
+  return this.httpClient.get<Car[]>(url);
+}
 
   public getEmployee(): Observable<Employee>{
     return  this.httpClient.get<Employee>(this.BASE_URL + '/employees');
@@ -63,9 +72,20 @@ public getBranch(id: number): Observable<Branch>{
     return this.httpClient.get<Employee[]>(this.BASE_URL + '/employees');
   }
 
+  public getCars (): Observable <Car[]> {
+    return this.httpClient.get<Car[]>(this.BASE_URL + '/cars');
+  }
+
+  // public getBranchCars(id: number): Observable<Car[]>{
+  //   const url = `${this.BASE_URL + '/branches'}/${id}` + '/cars';
+  //   return this.httpClient.get<Car[]>(url);
+  // }
+=======
+
   public getCustomers(): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(this.BASE_URL + '/customers');
   }
+
 
 
   // public getEmployee(id: number): Observable<Employee>{

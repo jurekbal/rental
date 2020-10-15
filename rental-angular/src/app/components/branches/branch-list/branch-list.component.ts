@@ -38,7 +38,7 @@ export class BranchListComponent implements OnInit {
 
   deleteBranch(branch: Branch): void {
     this.branches = this.branches.filter(s => s !== branch);
-    this.restService.delateBranch(branch).subscribe();
+    this.restService.deleteBranch(branch).subscribe();
   }
 
   public addBranch(streetWithNumber: string, city: string, postalCode: string): void {
