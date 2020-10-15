@@ -5,7 +5,7 @@ import { EditComponent } from './components/edit-company-data/edit-company-data'
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CarsComponent } from './components/cars/cars.component';
-import { ClientsComponent } from './components/clients/clients.component';
+import { CustomerComponent } from './components/customer/customer.component';
 import { BookingComponent } from './components/booking/booking.component';
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from "./components/home/home.component";
@@ -25,7 +25,7 @@ import { BranchListComponent } from './components/branches/branch-list/branch-li
     NotFoundComponent,
 CompanyBranchComponent,
     CarsComponent,
-    ClientsComponent,
+    CustomerComponent,
     BookingComponent,
    HomeComponent,
    CarAvailableComponent,

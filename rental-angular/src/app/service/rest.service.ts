@@ -6,7 +6,11 @@ import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Branch, EmployeeB} from "./branch";
 import {Employee} from "./employee";
+
 import {Car} from "./car";
+
+
+import {Customer} from "./customer";
 
 
 @Injectable({
@@ -67,6 +71,7 @@ public getBranchCars(id: number): Observable<Car[]>{
 
     return this.httpClient.get<Employee[]>(this.BASE_URL + '/employees');
   }
+
   public getCars (): Observable <Car[]> {
     return this.httpClient.get<Car[]>(this.BASE_URL + '/cars');
   }
@@ -75,6 +80,14 @@ public getBranchCars(id: number): Observable<Car[]>{
   //   const url = `${this.BASE_URL + '/branches'}/${id}` + '/cars';
   //   return this.httpClient.get<Car[]>(url);
   // }
+=======
+
+  public getCustomers(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.BASE_URL + '/customers');
+  }
+
+
+
   // public getEmployee(id: number): Observable<Employee>{
   //   const url = `${this.BASE_URL + '/branches'}/${id}`;
   //   return this.httpClient.get<Employee>(url);
