@@ -1,0 +1,38 @@
+<section>
+  <div class="block">
+
+    <table>
+      <thead>
+      <tr>
+        <th colspan="9">Lista wypożyczeń<br></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Numer</td>
+        <td>Utworzono w dniu</td>
+        <td>Wypożyczający<br></td>
+        <td>Przez pracownika<br></td>
+        <td>Samochód</td>
+        <td>Dzień wypożyczenia</td>
+        <td>Dzień zwrotu</td>
+        <td>Z oddziału</td>
+        <td>Do oddziału</td>
+      </tr>
+      <tr *ngFor="let booking of booking">
+        <td>{{booking?.id}}</td>
+        <td>{{booking?.createdTimestamp}}</td>
+        <td>{{booking?.customerId}}</td>
+        <td>{{booking?.employeeId}}</td>
+        <td>{{booking?.carId}}</td>
+        <td>{{booking?.rentalDay}}</td>
+        <td>{{booking?.returnDay}}</td>
+        <td>{{booking?.rentBranchId}}</td>
+        <td>{{booking?.returnBranchId}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</section>

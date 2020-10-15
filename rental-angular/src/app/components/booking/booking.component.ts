@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RestService} from "../../service/rest.service";
-import {Branch} from "../../service/branch";
+import {Booking} from "../../service/booking";
 
-class Booking {
-}
 
 
 @Component({
@@ -13,28 +11,36 @@ class Booking {
 
 })
 export class BookingComponent implements OnInit {
-booking: Booking;
+  booking: Booking[];
 
+  @Input() bookingAdd: Booking[];
 
-
-  constructor(private restService : RestService  ) { }
+  constructor(private restService: RestService) {
+  }
 
   ngOnInit(): void {
     this.getBooking();
   }
 
-  getBooking(): void{
+  getBooking(): void {
     this.restService.getBooking()
       .subscribe(booking => this.booking = booking);
   }
-  public addBooking(customerID: number, employeeId: number, carId: number,rentalDay: ,returnDay: ,rentBranchId: number,returnBranchId: number): void{
-  // if (!customerID || !employeeId|| !postalCode ) {
-  // return;
-}
-this.booking = {}
-}
-this.restService.addBooking({customerID, employeeId, carId,rentalDay, returnDay,rentBranchId,returnBranchId } as Booking)
-  .subscribe(booking => {
-    this.booking.push(booking);
-  });
+
+  public addBooking(customerID: number, employeeId: number, carId: number,
+                    rentalDay: string, returnDay: string, rentBranchId: number, returnBranchId: number): void {
+    if (!customerID || !employeeId || carId) {
+      return;
+    }
+
+// @ts-ignore //Todo nie wiem co się tu wydarzyło ????
+
+    this.restService.addBooking({
+      customerID, employeeId, carId,
+      rentalDay, returnDay, rentBranchId, returnBranchId
+    } as Booking)
+      .subscribe(booking => {
+        this.bookingAdd.push(booking);
+      });
+  }
 }

@@ -87,7 +87,7 @@ justify-content: center;
   margin: 15px;
   border-radius: 5px;
   text-align: center;
-  max-width: 720px;
+  max-width: fit-content ;
 
 }
 .editblock{
@@ -100,7 +100,7 @@ justify-content: center;
   margin: 15px;
   border-radius: 5px;
   text-align: center;
-  max-width: 620px;
+  max-width: border-box ;
   min-width: 250px;
   text-align: left;
   font-size: 25px;

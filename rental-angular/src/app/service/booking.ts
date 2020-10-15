@@ -9,4 +9,5 @@ export interface Booking {
   rentBranchId: number;
   returnBranchId: number;
   totalCost: number;
+
 }
