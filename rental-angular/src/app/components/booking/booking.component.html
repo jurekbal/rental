@@ -65,12 +65,35 @@
         </select></td>
       </tr>
       <tr>
-        <td><h6>Wypożyczono w dniu:</h6></td>
-        <td></td>
+        <td><h6>Wypożyczono w dniu:</h6>
+        </td>
+        <td>
+          <form class="form-inline">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       name="dp" [(ngModel)]="rent" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </td>
       </tr>
       <tr>
         <td><h6>Oddano w dniu:</h6></td>
-        <td></td>
+        <td><form class="form-inline">
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd"
+                     name="dp2" [(ngModel)]="return" ngbDatepicker #d2="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </form></td>
       </tr>
       <tr>
         <td></td>

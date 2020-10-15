@@ -15,6 +15,7 @@ import { CarAvailableComponent } from './components/cars/car-available/car-avail
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { BranchListComponent } from './components/branches/branch-list/branch-list.component';
 import {GetCustomerListComponent} from "./components/get-components/get-customer-list/get-customer-list.component";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -42,6 +43,7 @@ GetCustomerListComponent,
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        NgbModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
