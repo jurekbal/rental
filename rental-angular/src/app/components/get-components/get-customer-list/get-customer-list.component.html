@@ -1,0 +1,5 @@
+
+  <select>
+    <option *ngFor="let customer of customers" [ngValue]="customer">{{ customer?.firstName }} {{customer?.lastName}}</option>
+  </select>
+
