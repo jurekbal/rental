@@ -1,11 +1,13 @@
 package javapoz24.team3.rental.domain.car;
 
 import javapoz24.team3.rental.domain.base.BaseEntity;
+import javapoz24.team3.rental.domain.booking.Booking;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,6 +32,9 @@ public class Car extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
     private CompanyBranch companyBranch;
+
+    @OneToMany(mappedBy = "car")
+    private List<Booking> bookings;
 
     @Builder
     public Car(Long id, String brand, String model, String regNumber,

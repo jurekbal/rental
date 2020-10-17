@@ -7,6 +7,15 @@ import {throwError} from 'rxjs';
 import {Branch, EmployeeB} from "./branch";
 import {Employee} from "./employee";
 
+
+import {Car} from "./car";
+
+
+import {Customer} from "./customer";
+import {BookingComponent} from "../components/booking/booking.component";
+import {Booking} from "./booking";
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,11 +38,13 @@ export class RestService {
     return this.httpClient.put<CompanyData>(this.BASE_URL + '/home', companyData, this.httpOptnions);
 
   }
-public getBranch(id: number): Observable<Branch>{
-  const url = `${this.BASE_URL + '/branches'}/${id}`;
-  return this.httpClient.get<Branch>(url);
 
-}
+  public getBranch(id: number): Observable<Branch> {
+    const url = `${this.BASE_URL + '/branches'}/${id}`;
+    return this.httpClient.get<Branch>(url);
+
+  }
+
   public getBranches(): Observable<Branch[]> {
 
     return this.httpClient.get<Branch[]>(this.BASE_URL + '/branches');
@@ -44,7 +55,7 @@ public getBranch(id: number): Observable<Branch>{
 
   }
 
-  public delateBranch(branch: Branch): Observable<Branch> {
+  public deleteBranch(branch: Branch): Observable<Branch> {
     const url = `${this.BASE_URL + '/branches'}/${branch.id}`;
     return this.httpClient.delete<Branch>(url, this.httpOptnions);
   }
@@ -54,46 +65,72 @@ public getBranch(id: number): Observable<Branch>{
     return this.httpClient.put<Branch>(url, branch, this.httpOptnions)
   }
 
-  public getEmployee(): Observable<Employee>{
-    return  this.httpClient.get<Employee>(this.BASE_URL + '/employees');
+  public getBranchCars(id: number): Observable<Car[]> {
+    const url = `${this.BASE_URL + '/branches'}/${id}` + '/cars';
+    return this.httpClient.get<Car[]>(url);
   }
+
+  public getEmployee(): Observable<Employee> {
+    return this.httpClient.get<Employee>(this.BASE_URL + '/employees');
+  }
+
   public getEmployees(): Observable<Employee[]> {
 
     return this.httpClient.get<Employee[]>(this.BASE_URL + '/employees');
   }
+
+  public getCars(): Observable<Car[]> {
+    return this.httpClient.get<Car[]>(this.BASE_URL + '/cars');
+  }
+
+  // public getBranchCars(id: number): Observable<Car[]>{
+  //   const url = `${this.BASE_URL + '/branches'}/${id}` + '/cars';
+  //   return this.httpClient.get<Car[]>(url);
+  // }
+
+
+  public getCustomers(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.BASE_URL + '/customers');
+  }
+
+  public getBooking(): Observable<Booking[]> {
+    return this.httpClient.get<Booking[]>(this.BASE_URL + '/booking');
+  }
+
+  public getBookingId(id: number): Observable<Booking[]> {
+    const url = `${this.BASE_URL + '/booking'}/${id}`;
+    return this.httpClient.get<Booking[]>(url);
+  }
+public addBooking(booking: Booking): Observable<Booking>   {
+  return this.httpClient.put<Booking>(this.BASE_URL + '/booking', booking, this.httpOptnions);}
   // public getEmployee(id: number): Observable<Employee>{
-  //   const url = `${this.BASE_URL + '/branches'}/${id}`;
-  //   return this.httpClient.get<Employee>(url);
-  //
-  // }
-  // public getEmployees(): Observable<Employee[]> {
-  //   return this.httpClient.get<Employee[]>(this.BASE_URL + '/branches');
-  // }
-  // public update(companyData): Observable<CompanyData> {
-  //    return this.httpClient.put<CompanyData>(this.BASE_URL + '/home/', JSON.stringify(companyData), this.httpOptnions)
-  //      .pipe(
-  //        catchError(this.errorHandler)
-  //      )
-  //  }
-  //
-  //
-  //
-  //  errorHandler(error) {
-  //    let errorMessage = '';
-  //    if(error.error instanceof ErrorEvent) {
-  //      // Get client-side error
-  //      errorMessage = error.error.message;
-  //    } else {
-  //      // Get server-side error
-  //      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-  //    }
-  //    console.log(errorMessage);
-  //    return throwError(errorMessage);
-  //  }
-}
-
-
-
-
-
+    //   const url = `${this.BASE_URL + '/branches'}/${id}`;
+    //   return this.httpClient.get<Employee>(url);
+    //
+    // }
+    // public getEmployees(): Observable<Employee[]> {
+    //   return this.httpClient.get<Employee[]>(this.BASE_URL + '/branches');
+    // }
+    // public update(companyData): Observable<CompanyData> {
+    //    return this.httpClient.put<CompanyData>(this.BASE_URL + '/home/', JSON.stringify(companyData), this.httpOptnions)
+    //      .pipe(
+    //        catchError(this.errorHandler)
+    //      )
+    //  }
+    //
+    //
+    //
+    //  errorHandler(error) {
+    //    let errorMessage = '';
+    //    if(error.error instanceof ErrorEvent) {
+    //      // Get client-side error
+    //      errorMessage = error.error.message;
+    //    } else {
+    //      // Get server-side error
+    //      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    //    }
+    //    console.log(errorMessage);
+    //    return throwError(errorMessage);
+    //  }
+  }
 
