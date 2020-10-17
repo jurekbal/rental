@@ -42,14 +42,13 @@ app-root {
   width: 100%;
 }
 
-}
+
 .nav{
 
   display: flex;
   background-color: rgb(159, 207, 240);
   border-radius: 20px;
   flex-wrap: wrap;
-  margin: 30px;
 }
 
 .content{
@@ -65,7 +64,7 @@ app-root {
   margin-block-end: 20px;
 }
 
-}
+
 .menublock{
   padding: 1px;
   background-color: #90F4E0;
@@ -80,7 +79,7 @@ app-root {
 }
 
 
-}
+
 .block{
   padding-left: 10px;
   padding-right: 10px;
@@ -94,7 +93,7 @@ app-root {
   max-width: 720px;
 }
 
-}
+
 .editblock{
   padding-left: 5px;
   padding-right: 5px;
