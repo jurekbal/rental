@@ -1,0 +1,22 @@
+<div class="editblock">
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"><h5>Lista klientów</h5></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Imię i Nazwisko</td>
+    <td>Email</td>
+    <td>Adres</td>
+  </tr>
+  <tr *ngFor="let customer of customers">
+    <td><p> {{customer?.firstName}} {{customer?.lastName}}</p></td>
+    <td><p>{{customer?.email}}</p></td>
+    <td>ul. {{customer?.address?.streetWithNumber}}, {{customer?.address?.postalCode}} {{customer?.address?.city}}</td>
+  </tr>
+  </tbody>
+</table>
+
+</div>

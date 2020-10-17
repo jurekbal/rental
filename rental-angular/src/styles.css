@@ -3,6 +3,7 @@
 
 
 
+
 * {
   box-sizing: border-box;
 }
@@ -80,7 +81,7 @@ app-root {
   margin: 15px;
   border-radius: 5px;
   text-align: center;
-  max-width: 720px;
+  max-width: fit-content ;
 
 }
 .editblock{
@@ -92,7 +93,7 @@ app-root {
   /* flex-direction: column; */
   margin: 15px;
   text-align: center;
-  max-width: 620px;
+  max-width: border-box ;
   min-width: 250px;
   font-size: 20px;
   flex: auto;
@@ -273,3 +274,6 @@ footer {
     max-width: 1700px;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
