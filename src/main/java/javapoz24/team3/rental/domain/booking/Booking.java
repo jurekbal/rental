@@ -6,16 +6,14 @@ import javapoz24.team3.rental.domain.customer.Customer;
 import javapoz24.team3.rental.domain.emploee.Employee;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import lombok.*;
-import org.hibernate.annotations.Formula;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Getter
@@ -41,11 +39,24 @@ public class Booking extends BaseEntity {
     @ManyToOne
     private CompanyBranch returnBranch;
 
-    @Formula("(select((DATEDIFF('day', b.rental_day, b.return_day)) * c.pricing) " +
-            "from booking b " +
-            "inner join car c ON b.car_id= c.id " +
-            "where b.id= id)")
+    @Transient
     private BigDecimal totalCost;
+
+    @PostLoad
+    private void postLoad() {
+        if (rentalDay != null && returnDay != null && !(returnDay.isBefore(rentalDay)) &&
+         car != null) {
+            long rentDuration = ChronoUnit.DAYS.between(rentalDay, returnDay);
+            if (rentDuration > 0) {
+                totalCost = car.getPricing().multiply(BigDecimal.valueOf(rentDuration));
+            } else {
+                totalCost = car.getPricing();
+            }
+        } else {
+            totalCost = new BigDecimal("0.0");
+            // może lepiej rzucić wyjątkiem? Tylko co z nim wtedy?
+        }
+    }
 
     @Builder
     public Booking(Long id, Customer customer, Employee employee, Car car,

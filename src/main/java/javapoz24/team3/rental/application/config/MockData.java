@@ -213,7 +213,6 @@ public class MockData {
 
         bookingService.addOrUpdate(BookingDTO.fromBooking(booking1));
 
-
 //        System.out.println("Branches List From Mocked Object:");
 //        System.out.println(rental.getCompanyBranches());
 //        System.out.println("Rental Info From Mocked Object: (saved to DB)");
