@@ -158,6 +158,8 @@ class BookingDomainServiceTest {
         // then 2
         assertThat(zeroRentDurationDays).isZero();
         assertThat(bookingZeroDays.getTotalCost())
+                .as("If return date is the same as rental date total cost should be equal to" +
+                        " one day rent cost (ie. car.pricing)")
                 .isEqualTo(bookingZeroDays.getCar().getPricing());
     }
 }
