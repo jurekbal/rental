@@ -1,10 +1,12 @@
 package javapoz24.team3.rental.domain.booking;
 
+import javapoz24.team3.rental.domain.rentact.RentAct;
 import lombok.Value;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Value
 public class BookingDTO {
@@ -20,9 +22,15 @@ public class BookingDTO {
     Long rentBranchId;
     Long returnBranchId;
     BigDecimal totalCost;
+    Long rentActId;
 
 
     public static BookingDTO fromBooking(Booking booking) {
+        Optional<RentAct> optRentAct = Optional.ofNullable(booking.getRentAct());
+        Long rentActId = null;
+        if (optRentAct.isPresent()) {
+            rentActId = optRentAct.get().getId();
+        }
         return new BookingDTO(
                 booking.getId(),
                 booking.getCreatedTimestamp(),
@@ -33,7 +41,8 @@ public class BookingDTO {
                 booking.getReturnDay(),
                 booking.getRentBranch().getId(),
                 booking.getReturnBranch().getId(),
-                booking.getTotalCost()
+                booking.getTotalCost(),
+                rentActId
         );
     }
 }

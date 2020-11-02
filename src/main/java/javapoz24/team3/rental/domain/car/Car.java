@@ -2,6 +2,7 @@ package javapoz24.team3.rental.domain.car;
 
 import javapoz24.team3.rental.domain.base.BaseEntity;
 import javapoz24.team3.rental.domain.booking.Booking;
+import javapoz24.team3.rental.domain.rentact.RentAct;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import lombok.*;
 
@@ -35,6 +36,9 @@ public class Car extends BaseEntity {
 
     @OneToMany(mappedBy = "car")
     private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "car")
+    private List<RentAct> rents;
 
     @Builder
     public Car(Long id, String brand, String model, String regNumber,

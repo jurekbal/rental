@@ -2,6 +2,7 @@ package javapoz24.team3.rental.domain.customer;
 
 import javapoz24.team3.rental.domain.base.BasePerson;
 import javapoz24.team3.rental.domain.booking.Booking;
+import javapoz24.team3.rental.domain.rentact.RentAct;
 import javapoz24.team3.rental.domain.rental.Address;
 import lombok.*;
 
@@ -24,6 +25,9 @@ public class Customer extends BasePerson {
 
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "customer")
+    private List<RentAct> rents;
 
     @Builder
     public Customer(Long id, String firstName, String lastName, String email, Address address) {

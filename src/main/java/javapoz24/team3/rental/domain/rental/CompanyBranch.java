@@ -4,6 +4,7 @@ import javapoz24.team3.rental.domain.base.BaseEntity;
 import javapoz24.team3.rental.domain.booking.Booking;
 import javapoz24.team3.rental.domain.car.Car;
 import javapoz24.team3.rental.domain.emploee.Employee;
+import javapoz24.team3.rental.domain.rentact.RentAct;
 import lombok.*;
 
 import javax.persistence.*;
@@ -31,7 +32,7 @@ public class CompanyBranch extends BaseEntity {
     @EqualsAndHashCode.Exclude
     private Set<Employee> employees;
 
-    @OneToMany(mappedBy = "companyBranch", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "companyBranch")
     @EqualsAndHashCode.Exclude
     private Set<Car> cars;
 
@@ -42,6 +43,11 @@ public class CompanyBranch extends BaseEntity {
     @OneToMany(mappedBy = "returnBranch")
     private List<Booking> returnBookings;
 
+    @OneToMany(mappedBy = "rentBranch")
+    private List<RentAct> rentsFromHere;
+    @OneToMany(mappedBy = "returnBranch")
+    private List<RentAct> returnsToHere;
+
     public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
 
         return new CompanyBranch(
@@ -50,6 +56,8 @@ public class CompanyBranch extends BaseEntity {
                 new HashSet<>(),
                 new HashSet<>(),
                 companyBranchDTO.isClosed(),
+                new ArrayList<>(),
+                new ArrayList<>(),
                 new ArrayList<>(),
                 new ArrayList<>()
         );
