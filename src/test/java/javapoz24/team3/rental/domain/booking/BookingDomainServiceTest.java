@@ -78,7 +78,7 @@ class BookingDomainServiceTest {
 
         List<Rental> rentals = rentalRepository.findAll();
         CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rentals.get(0), new HashSet<>(), new HashSet<>(),
-                false, new ArrayList<>(), new ArrayList<>());
+                false, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         branchRepository.save(branch1);
 
         Employee e1 = Employee.builder()

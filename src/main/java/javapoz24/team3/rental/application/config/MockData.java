@@ -23,12 +23,12 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/* Provides test data */
 @Service
 public class MockData {
 
@@ -72,11 +72,11 @@ public class MockData {
         );
 
         CompanyBranch branch1 = new CompanyBranch(addressOfBranch1, rental, new HashSet<>(), new HashSet<>(),
-                false, new ArrayList<>(), new ArrayList<>());
+                false, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         CompanyBranch branch2 = new CompanyBranch(addressOfBranch2, rental, new HashSet<>(), new HashSet<>(),
-                false, new ArrayList<>(), new ArrayList<>());
+                false, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         CompanyBranch branch3 = new CompanyBranch(addressOfBranch3, rental, new HashSet<>(), new HashSet<>(),
-                true, new ArrayList<>(), new ArrayList<>());
+                true, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
         Employee e1 = Employee.builder()
                 .firstName("Marian")

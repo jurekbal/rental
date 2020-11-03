@@ -34,14 +34,13 @@ public class RentAct extends BaseEntity {
     private Employee rentingEmployee;
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee closingEmployee;
-    //TODO Continue here! Support other side od relation
     @ManyToOne
     private Car car;
     @ManyToOne
     private CompanyBranch rentBranch;
     @ManyToOne
     private CompanyBranch returnBranch;
-    private LocalDate rentalDay;
+    private LocalDate rentDay;
     private LocalDate returnDay;
 
     /* not calculated, persisted,
@@ -55,7 +54,7 @@ public class RentAct extends BaseEntity {
     @Builder
     public RentAct(Long id, LocalDateTime createdTimestamp, Customer customer,
                    Employee rentingEmployee, Employee closingEmployee, Car car,
-                   LocalDate rentalDay, LocalDate returnDay,
+                   LocalDate rentDay, LocalDate returnDay,
                    CompanyBranch rentBranch, CompanyBranch returnBranch,
                    BigDecimal totalCost, boolean open, String note) {
         this.setId(id);
@@ -64,7 +63,7 @@ public class RentAct extends BaseEntity {
         this.rentingEmployee = rentingEmployee;
         this.closingEmployee = closingEmployee;
         this.car = car;
-        this.rentalDay = rentalDay;
+        this.rentDay = rentDay;
         this.returnDay = returnDay;
         this.rentBranch = rentBranch;
         this.returnBranch = returnBranch;
