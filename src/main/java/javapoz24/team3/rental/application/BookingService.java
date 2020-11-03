@@ -6,6 +6,7 @@ import javapoz24.team3.rental.domain.booking.BookingDomainService;
 import javapoz24.team3.rental.domain.car.Car;
 import javapoz24.team3.rental.domain.customer.Customer;
 import javapoz24.team3.rental.domain.emploee.Employee;
+import javapoz24.team3.rental.domain.rentact.RentAct;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,17 +23,19 @@ public class BookingService {
     private final EmployeeService employeeService;
     private final CarService carService;
     private final RentalService rentalService;
+    private final RentingService rentingService;
 
     public BookingService(BookingDomainService bookingDomainService,
                           CustomerService customerService,
                           EmployeeService employeeService,
                           CarService carService,
-                          RentalService rentalService) {
+                          RentalService rentalService, RentingService rentingService) {
         this.bookingDomainService = bookingDomainService;
         this.customerService = customerService;
         this.employeeService = employeeService;
         this.carService = carService;
         this.rentalService = rentalService;
+        this.rentingService = rentingService;
     }
 
     public List<BookingDTO> getAll() {
@@ -51,6 +54,10 @@ public class BookingService {
         Optional<Car> optCar = carService.getById(bookingDTO.getCarId());
         Optional<CompanyBranch> optRentBranch = rentalService.getBranchById(bookingDTO.getRentBranchId());
         Optional<CompanyBranch> optReturnBranch = rentalService.getBranchById(bookingDTO.getReturnBranchId());
+        Optional<RentAct> optRentAct = Optional.empty();
+        if (bookingDTO.getRentActId() != null){
+            optRentAct = rentingService.getRentActById(bookingDTO.getRentActId());
+        }
 
         if (optCustomer.isPresent() && optEmployee.isPresent() && optCar.isPresent()
                 && optRentBranch.isPresent() && optReturnBranch.isPresent()) {
@@ -62,7 +69,8 @@ public class BookingService {
                     bookingDTO.getRentalDay(),
                     bookingDTO.getReturnDay(),
                     optRentBranch.get(),
-                    optReturnBranch.get()
+                    optReturnBranch.get(),
+                    optRentAct.orElse(null)
             );
             Booking savedBooking = bookingDomainService.addOrUpdate(booking);
             return ResponseEntity

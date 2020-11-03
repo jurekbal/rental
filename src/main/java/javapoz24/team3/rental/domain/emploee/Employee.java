@@ -3,6 +3,7 @@ package javapoz24.team3.rental.domain.emploee;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javapoz24.team3.rental.domain.base.BasePerson;
 import javapoz24.team3.rental.domain.booking.Booking;
+import javapoz24.team3.rental.domain.rentact.RentAct;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import lombok.*;
 
@@ -15,7 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties("companyBranch")
+@JsonIgnoreProperties("companyBranch") // to jest już raczej niepotrzebne, Jackson konwertuje DTO. - do sprawdzenia
 public class Employee extends BasePerson {
 
     @Enumerated(value = EnumType.STRING)
@@ -27,6 +28,12 @@ public class Employee extends BasePerson {
 
     @OneToMany(mappedBy = "employee")
     private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "rentingEmployee")
+    private List<RentAct> openedRents;
+
+    @OneToMany(mappedBy = "closingEmployee")
+    private List<RentAct> closedRents;
 
     @Builder
     public Employee(Long id, String firstName, String lastName, Positions position, CompanyBranch companyBranch) {
