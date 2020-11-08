@@ -30,23 +30,29 @@ public class CompanyBranch extends BaseEntity {
 
     @OneToMany(mappedBy = "companyBranch", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
-    private Set<Employee> employees;
+    private Set<Employee> employees = new HashSet<>();
 
     @OneToMany(mappedBy = "companyBranch")
     @EqualsAndHashCode.Exclude
-    private Set<Car> cars;
+    private Set<Car> cars = new HashSet<>();
 
     private boolean closed;
 
     @OneToMany(mappedBy = "rentBranch")
-    private List<Booking> rentBookings;
+    private List<Booking> rentBookings = new ArrayList<>();
     @OneToMany(mappedBy = "returnBranch")
-    private List<Booking> returnBookings;
+    private List<Booking> returnBookings = new ArrayList<>();
 
     @OneToMany(mappedBy = "rentBranch")
-    private List<RentAct> rentsFromHere;
+    private List<RentAct> rentsFromHere = new ArrayList<>();
     @OneToMany(mappedBy = "returnBranch")
-    private List<RentAct> returnsToHere;
+    private List<RentAct> returnsToHere = new ArrayList<>();
+
+    public CompanyBranch(Address address, Rental rental, boolean closed) {
+        this.address = address;
+        this.rental = rental;
+        this.closed = closed;
+    }
 
     public static CompanyBranch fromDTO(CompanyBranchDTO companyBranchDTO, Rental rental) {
 
