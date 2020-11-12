@@ -33,6 +33,7 @@ public class RentActDTO {
             referenceBookingId = optBooking.get().getId();
         }
         // pozostałe parametry nie powinny być nullem;
+        //TODO Nieprawda: ClosingEmployee może być nullem!
         return new RentActDTO(
                 rentAct.getId(),
                 rentAct.getCreatedTimestamp(),
