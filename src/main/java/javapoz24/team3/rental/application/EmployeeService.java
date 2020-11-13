@@ -50,6 +50,5 @@ public class EmployeeService {
             );
             employeeDomainService.saveEmployee(employee);
         }
-        //TODO Zwrócić odpowiedni kod/rzucić wyjątkiem w zależności od rezultatu?
     }
 }

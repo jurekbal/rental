@@ -43,7 +43,7 @@ public class RentAct extends BaseEntity {
     private LocalDate rentDay;
     private LocalDate returnDay;
 
-    /* not calculated, persisted,
+    /* not calculated like in booking, persisted,
     may differ from (days * cost/day) for some reasons (discounts, extra services etc.)
      */
     private BigDecimal totalCost;
@@ -52,13 +52,13 @@ public class RentAct extends BaseEntity {
     private String note;
 
     @Builder
-    public RentAct(Long id, LocalDateTime createdTimestamp, Customer customer,
+    public RentAct(Long id, Booking referenceBooking, Customer customer,
                    Employee rentingEmployee, Employee closingEmployee, Car car,
                    LocalDate rentDay, LocalDate returnDay,
                    CompanyBranch rentBranch, CompanyBranch returnBranch,
                    BigDecimal totalCost, boolean open, String note) {
         this.setId(id);
-        this.createdTimestamp = createdTimestamp;
+        this.referenceBooking = referenceBooking;
         this.customer = customer;
         this.rentingEmployee = rentingEmployee;
         this.closingEmployee = closingEmployee;
