@@ -51,7 +51,10 @@ public class RentingService {
     public ResponseEntity<RentActDTO> addOrUpdate(RentActDTO rentActDTO) {
         Optional<Customer> optCustomer = customerService.getById(rentActDTO.getCustomerId());
         Optional<Employee> optRentingEmployee = employeeService.getEmployeeById(rentActDTO.getRentingEmployeeId());
-        Optional<Employee> optClosingEmployee = employeeService.getEmployeeById(rentActDTO.getClosingEmployeeId());
+        Optional<Employee> optClosingEmployee = Optional.empty();
+        if (rentActDTO.getClosingEmployeeId() != null) {
+            optClosingEmployee = employeeService.getEmployeeById(rentActDTO.getClosingEmployeeId());
+        }
         Optional<Car> optCar = carService.getById(rentActDTO.getCarId());
         Optional<CompanyBranch> optRentBranch = rentalService.getBranchById(rentActDTO.getRentBranchId());
         Optional<CompanyBranch> optReturnBranch = rentalService.getBranchById(rentActDTO.getReturnBranchId());

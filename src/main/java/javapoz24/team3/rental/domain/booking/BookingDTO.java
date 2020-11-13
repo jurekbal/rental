@@ -11,7 +11,7 @@ import java.util.Optional;
 @Value
 public class BookingDTO {
 
-    //TODO walidacje, totalCost
+    //TODO walidacje
     Long id;
     LocalDateTime createdTimestamp;
     Long customerId;

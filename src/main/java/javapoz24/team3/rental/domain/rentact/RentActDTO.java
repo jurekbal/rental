@@ -1,6 +1,7 @@
 package javapoz24.team3.rental.domain.rentact;
 
 import javapoz24.team3.rental.domain.booking.Booking;
+import javapoz24.team3.rental.domain.emploee.Employee;
 import lombok.Value;
 
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Value
 public class RentActDTO {
 
+    //TODO Validations
     Long id;
     LocalDateTime createdTimeStamp;
     Long referenceBookingId;
@@ -32,15 +34,19 @@ public class RentActDTO {
         if (optBooking.isPresent()) {
             referenceBookingId = optBooking.get().getId();
         }
+        Optional<Employee> optClosingEmployee = Optional.ofNullable(rentAct.getClosingEmployee());
+        Long closingEmployeeId = null;
+        if (optClosingEmployee.isPresent()) {
+            closingEmployeeId = optClosingEmployee.get().getId();
+        }
         // pozostałe parametry nie powinny być nullem;
-        //TODO Nieprawda: ClosingEmployee może być nullem!
         return new RentActDTO(
                 rentAct.getId(),
                 rentAct.getCreatedTimestamp(),
                 referenceBookingId,
                 rentAct.getCustomer().getId(),
                 rentAct.getRentingEmployee().getId(),
-                rentAct.getClosingEmployee().getId(),
+                closingEmployeeId,
                 rentAct.getCar().getId(),
                 rentAct.getRentBranch().getId(),
                 rentAct.getReturnBranch().getId(),

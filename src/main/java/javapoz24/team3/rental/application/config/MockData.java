@@ -1,11 +1,9 @@
 package javapoz24.team3.rental.application.config;
 
-import javapoz24.team3.rental.application.BookingService;
-import javapoz24.team3.rental.application.CarService;
-import javapoz24.team3.rental.application.CustomerService;
-import javapoz24.team3.rental.application.RentalService;
+import javapoz24.team3.rental.application.*;
 import javapoz24.team3.rental.domain.booking.Booking;
 import javapoz24.team3.rental.domain.booking.BookingDTO;
+import javapoz24.team3.rental.domain.booking.BookingDomainService;
 import javapoz24.team3.rental.domain.car.*;
 import javapoz24.team3.rental.domain.customer.Customer;
 import javapoz24.team3.rental.domain.customer.CustomerDTO;
@@ -13,6 +11,8 @@ import javapoz24.team3.rental.domain.customer.CustomerDomainService;
 import javapoz24.team3.rental.domain.emploee.Employee;
 import javapoz24.team3.rental.domain.emploee.EmployeeDomainService;
 import javapoz24.team3.rental.domain.emploee.Positions;
+import javapoz24.team3.rental.domain.rentact.RentAct;
+import javapoz24.team3.rental.domain.rentact.RentActDTO;
 import javapoz24.team3.rental.domain.rental.Address;
 import javapoz24.team3.rental.domain.rental.CompanyBranch;
 import javapoz24.team3.rental.domain.rental.Rental;
@@ -46,7 +46,11 @@ public class MockData {
     @Autowired
     private BookingService bookingService;
     @Autowired
+    private BookingDomainService bookingDomainService;
+    @Autowired
     private EmployeeDomainService employeeDomainService;
+    @Autowired
+    private RentingService rentingService;
 
     @PostConstruct
     public void GenerateMockData() {
@@ -209,16 +213,27 @@ public class MockData {
 
         bookingService.addOrUpdate(BookingDTO.fromBooking(booking1));
 
-//        System.out.println("Branches List From Mocked Object:");
-//        System.out.println(rental.getCompanyBranches());
-//        System.out.println("Rental Info From Mocked Object: (saved to DB)");
-//        System.out.println(rental);
+        /*
+        Renting
+        - creating open rent based on existing booking
+         */
+        Booking bookingPersisted = bookingDomainService.findAll().get(0);
+        RentAct rentAct1 = RentAct.builder()
+                .referenceBooking(bookingPersisted)
+                .customer(bookingPersisted.getCustomer())
+                .rentingEmployee(bookingPersisted.getEmployee())
+                .closingEmployee(null)
+                .car(bookingPersisted.getCar())
+                .rentBranch(bookingPersisted.getRentBranch())
+                .returnBranch(bookingPersisted.getReturnBranch())
+                .rentDay(bookingPersisted.getRentalDay())
+                .returnDay(null)
+                .totalCost(bookingPersisted.getTotalCost())
+                .open(true)
+                .note("")
+                .build();
 
-        //Poniższy kod wywala apkę przy FetchType.LAZY - @Transactional nic nie zmienia
-        // NAPRAWIONE - Lombok Data robi problemy (dokładnie lombokowy ToString), ale teraz nic nie wyświetli...
-//        System.out.println("*** Rental Info From DB:");
-//        Rental rentalFromDB = rentalDomainService.getRentalInfo();
-//        System.out.println(rentalFromDB);
+        rentingService.addOrUpdate(RentActDTO.fromRentAct(rentAct1));
     }
 
 }
