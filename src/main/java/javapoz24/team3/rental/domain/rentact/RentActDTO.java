@@ -1,7 +1,6 @@
 package javapoz24.team3.rental.domain.rentact;
 
-import javapoz24.team3.rental.domain.booking.Booking;
-import javapoz24.team3.rental.domain.emploee.Employee;
+import javapoz24.team3.rental.domain.base.BaseEntity;
 import lombok.Value;
 
 import java.math.BigDecimal;
@@ -29,16 +28,10 @@ public class RentActDTO {
     String note;
 
     public static RentActDTO fromRentAct(RentAct rentAct) {
-        Optional<Booking> optBooking = Optional.ofNullable(rentAct.getReferenceBooking());
-        Long referenceBookingId = null;
-        if (optBooking.isPresent()) {
-            referenceBookingId = optBooking.get().getId();
-        }
-        Optional<Employee> optClosingEmployee = Optional.ofNullable(rentAct.getClosingEmployee());
-        Long closingEmployeeId = null;
-        if (optClosingEmployee.isPresent()) {
-            closingEmployeeId = optClosingEmployee.get().getId();
-        }
+        Long referenceBookingId = Optional.ofNullable(rentAct.getReferenceBooking())
+                .map(BaseEntity::getId).orElse(null);
+        Long closingEmployeeId = Optional.ofNullable(rentAct.getClosingEmployee())
+                .map(BaseEntity::getId).orElse(null);
         // pozostałe parametry nie powinny być nullem;
         return new RentActDTO(
                 rentAct.getId(),

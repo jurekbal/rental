@@ -54,11 +54,8 @@ public class BookingService {
         Optional<Car> optCar = carService.getById(bookingDTO.getCarId());
         Optional<CompanyBranch> optRentBranch = rentalService.getBranchById(bookingDTO.getRentBranchId());
         Optional<CompanyBranch> optReturnBranch = rentalService.getBranchById(bookingDTO.getReturnBranchId());
-        Optional<RentAct> optRentAct = Optional.empty();
-        if (bookingDTO.getRentActId() != null){
-            optRentAct = rentingService.getRentActById(bookingDTO.getRentActId());
-        }
-
+        Optional<RentAct> optRentAct = Optional.ofNullable(bookingDTO.getRentActId())
+                .flatMap(rentingService::getRentActById);
         if (optCustomer.isPresent() && optEmployee.isPresent() && optCar.isPresent()
                 && optRentBranch.isPresent() && optReturnBranch.isPresent()) {
             Booking booking = new Booking(
@@ -77,7 +74,6 @@ public class BookingService {
                     .accepted()
                     .body(BookingDTO.fromBooking(savedBooking));
         }
-        //TODO załączyć komunikat błędu z wskazaniem problemu (ew. odpowiedni wyjątek)
         return ResponseEntity
                 .unprocessableEntity().build();
 
