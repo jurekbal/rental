@@ -50,21 +50,21 @@ public class RentingService {
 
     public ResponseEntity<RentActDTO> addOrUpdate(RentActDTO rentActDTO) {
         Optional<Customer> optCustomer = customerService.getById(rentActDTO.getCustomerId());
-        Optional<Employee> optRentingEmployee = employeeService.getEmployeeById(rentActDTO.getRentingEmployeeId());
-        Optional<Employee> optClosingEmployee = employeeService.getEmployeeById(rentActDTO.getClosingEmployeeId());
+        Optional<Employee> optRentingEmployee = Optional.ofNullable(rentActDTO.getRentingEmployeeId())
+                .flatMap(employeeService::getEmployeeById);
+        Optional<Employee> optClosingEmployee = Optional.ofNullable(rentActDTO.getClosingEmployeeId())
+                .flatMap(employeeService::getEmployeeById);
         Optional<Car> optCar = carService.getById(rentActDTO.getCarId());
         Optional<CompanyBranch> optRentBranch = rentalService.getBranchById(rentActDTO.getRentBranchId());
         Optional<CompanyBranch> optReturnBranch = rentalService.getBranchById(rentActDTO.getReturnBranchId());
-        Optional<Booking> optBookingId = Optional.empty();
-        if (rentActDTO.getReferenceBookingId() != null){
-            optBookingId = bookingService.getById(rentActDTO.getReferenceBookingId());
-        }
+        Optional<Booking> optBooking = Optional.ofNullable(rentActDTO.getReferenceBookingId())
+                .flatMap(bookingService::getById);
 
         if (optCustomer.isPresent() && optRentingEmployee.isPresent() && optCar.isPresent()
                 && optRentBranch.isPresent() && optReturnBranch.isPresent()) {
             RentAct rentAct = new RentAct(
                     rentActDTO.getId(),
-                    optBookingId.orElse(null),
+                    optBooking.orElse(null),
                     optCustomer.get(),
                     optRentingEmployee.get(),
                     optClosingEmployee.orElse(null),

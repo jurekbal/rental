@@ -1,6 +1,6 @@
 package javapoz24.team3.rental.domain.booking;
 
-import javapoz24.team3.rental.domain.rentact.RentAct;
+import javapoz24.team3.rental.domain.base.BaseEntity;
 import lombok.Value;
 
 import java.math.BigDecimal;
@@ -11,7 +11,7 @@ import java.util.Optional;
 @Value
 public class BookingDTO {
 
-    //TODO walidacje, totalCost
+    //TODO walidacje
     Long id;
     LocalDateTime createdTimestamp;
     Long customerId;
@@ -26,11 +26,8 @@ public class BookingDTO {
 
 
     public static BookingDTO fromBooking(Booking booking) {
-        Optional<RentAct> optRentAct = Optional.ofNullable(booking.getRentAct());
-        Long rentActId = null;
-        if (optRentAct.isPresent()) {
-            rentActId = optRentAct.get().getId();
-        }
+        Long rentActId = Optional.ofNullable(booking.getRentAct())
+                .map(BaseEntity::getId).orElseGet(()->null);
         return new BookingDTO(
                 booking.getId(),
                 booking.getCreatedTimestamp(),
