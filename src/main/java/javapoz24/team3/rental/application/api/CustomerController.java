@@ -29,7 +29,8 @@ public class CustomerController {
     }
 
     @PutMapping
-    public void addOrUpdate(@RequestBody CustomerDTO customerDTO) {
-        customerService.addOrUpdate(customerDTO);
+    public CustomerDTO addOrUpdate(@RequestBody CustomerDTO customerDTO) {
+        return CustomerDTO.fromCustomer(customerService.addOrUpdate(customerDTO));
+
     }
 }

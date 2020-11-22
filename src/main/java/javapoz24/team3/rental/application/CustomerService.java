@@ -28,7 +28,7 @@ public class CustomerService {
         return customerDomainService.getById(id);
     }
 
-    public void addOrUpdate(CustomerDTO customerDTO) {
+    public Customer addOrUpdate(CustomerDTO customerDTO) {
         Customer customer = new Customer(
                 customerDTO.getId(),
                 customerDTO.getFirstName(),
@@ -36,6 +36,6 @@ public class CustomerService {
                 customerDTO.getEmail(),
                 customerDTO.getAddress()
         );
-        customerDomainService.save(customer);
+        return customerDomainService.save(customer);
     }
 }
