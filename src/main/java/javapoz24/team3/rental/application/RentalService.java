@@ -30,18 +30,18 @@ public class RentalService {
         return RentalBasicDataDTO.fromRental(rentalDomainService.getAllRentalInfo(id));
     }
 
-    public void saveRentalInfoData(Rental rental) {
-        rentalDomainService.saveRentalInfoData(rental);
+    public Rental saveRentalInfoData(Rental rental) {
+        return rentalDomainService.saveRentalInfoData(rental);
     }
 
-    public void saveBranch(CompanyBranch branch) {
-        rentalDomainService.saveBranch(branch);
+    public CompanyBranch saveBranch(CompanyBranch branch) {
+        return rentalDomainService.saveBranch(branch);
     }
 
-    public void addOrUpdateBranch(CompanyBranchDTO branchDTO) {
+    public CompanyBranch addOrUpdateBranch(CompanyBranchDTO branchDTO) {
         Rental rental = rentalDomainService.getAllRentalInfo(RentalId.getInstance().getId());
         CompanyBranch branch = CompanyBranch.fromDTO(branchDTO, rental);
-        saveBranch(branch);
+        return saveBranch(branch);
     }
 
     public List<CompanyBranchDTO> getAllBranches() {

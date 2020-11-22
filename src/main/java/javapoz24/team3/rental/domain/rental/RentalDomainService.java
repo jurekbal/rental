@@ -7,7 +7,7 @@ public interface RentalDomainService {
 
     Rental getAllRentalInfo(Long id);
 
-    void saveRentalInfoData(Rental rental);
+    Rental saveRentalInfoData(Rental rental);
 
     CompanyBranch saveBranch(CompanyBranch branch);
 

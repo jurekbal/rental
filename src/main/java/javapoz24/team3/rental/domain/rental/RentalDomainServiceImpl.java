@@ -23,8 +23,8 @@ public class RentalDomainServiceImpl implements RentalDomainService {
     }
 
     @Override
-    public void saveRentalInfoData(Rental rental) {
-        rentalRepository.save(rental);
+    public Rental saveRentalInfoData(Rental rental) {
+        return rentalRepository.save(rental);
     }
 
     @Override
