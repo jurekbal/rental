@@ -49,6 +49,8 @@ public class BookingService {
     }
 
     public ResponseEntity<BookingDTO> addOrUpdate(BookingDTO bookingDTO) {
+        // TODO Walidacje biznesowe, np. data zwrotu >= daty wypożyczenia
+        // TODO Zabezpeiczyć wszystko przed nullami, bo validacja wyrzuca wyjątek tylko do konsoli
         Optional<Customer> optCustomer = customerService.getById(bookingDTO.getCustomerId());
         Optional<Employee> optEmployee = employeeService.getEmployeeById(bookingDTO.getEmployeeId());
         Optional<Car> optCar = carService.getById(bookingDTO.getCarId());
