@@ -49,6 +49,7 @@ public class RentingService {
     }
 
     public ResponseEntity<RentActDTO> addOrUpdate(RentActDTO rentActDTO) {
+        // TODO Zabezpieczyć wszystko przed nullem; dodać kontrolę logiki biznesowej
         Optional<Customer> optCustomer = customerService.getById(rentActDTO.getCustomerId());
         Optional<Employee> optRentingEmployee = Optional.ofNullable(rentActDTO.getRentingEmployeeId())
                 .flatMap(employeeService::getEmployeeById);

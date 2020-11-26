@@ -3,6 +3,8 @@ package javapoz24.team3.rental.domain.rentact;
 import javapoz24.team3.rental.domain.base.BaseEntity;
 import lombok.Value;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,18 +13,29 @@ import java.util.Optional;
 @Value
 public class RentActDTO {
 
-    //TODO Validations
     Long id;
     LocalDateTime createdTimeStamp;
     Long referenceBookingId;
+    @NotNull
+    @DecimalMin(value = "1")
     Long customerId;
+    @NotNull
+    @DecimalMin(value = "1")
     Long rentingEmployeeId;
     Long closingEmployeeId;
+    @NotNull
+    @DecimalMin(value = "1")
     Long carId;
+    @NotNull
+    @DecimalMin(value = "1")
     Long rentBranchId;
+    @NotNull
+    @DecimalMin(value = "1")
     Long returnBranchId;
+    @NotNull
     LocalDate rentDay;
     LocalDate returnDay;
+    @NotNull
     BigDecimal totalCost;
     boolean open;
     String note;

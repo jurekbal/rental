@@ -3,11 +3,18 @@ package javapoz24.team3.rental.domain.customer;
 import javapoz24.team3.rental.domain.rental.Address;
 import lombok.Value;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @Value
 public class CustomerDTO {
-    //TODO walidacja
+
     Long id;
+    @NotNull
+    @Size(min = 2, max = 50)
     String firstName;
+    @NotNull
+    @Size(min = 2, max = 50)
     String lastName;
     String email;
     Address address;
